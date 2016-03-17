@@ -1,0 +1,120 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de negativadas</ui:define>
+
+	<ui:define name="corpo">
+		<h:form id="frmPesquisa">
+			<h1>Pesquisa de negativadas</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar"
+						action="#{pesquisaNegativadasBean.pesquisar}" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/negativadas/CadastroNegativada" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+				<p:outputLabel value="Empresa" for="empresa" />
+				<h:outputText id="empresa"
+					value="#{seguranca.usuarioLogado.usuario.empresa.fantasia}" />
+<!-- 
+				<p:outputLabel value="Pessoa" for="pessoa" />
+				<p:inputText id="pessoa" size="60"
+					value="#{pesquisaNegativadasBean.filtro.pessoa}" />
+ -->
+			</p:panelGrid>
+
+			<p:dataTable id="negativadasTable"
+				value="#{pesquisaNegativadasBean.negativadasFiltrados}"
+				var="negativada" style="margin-top: 20px"
+				emptyMessage="Nenhuma negativada encontrada." rows="20"
+				paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+				<p:column headerText="Empresa"
+					style="text-align: center; width: 250px">
+					<h:outputText value="#{negativada.empresa.fantasia}"
+						style="text-transform: uppercase" />
+				</p:column>
+
+				<p:column headerText="Pessoa">
+					<h:outputText value="#{negativada.pessoa.nome}"
+						style="text-transform: uppercase" />
+				</p:column>
+
+				<p:column headerText="Valor" style="width: 250px">
+					<h:outputText value="R$ #{negativada.valor}" >
+						<f:convertNumber type="number" groupingUsed="true" minFractionDigits="2" pattern="#0.00"/>
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Data divida" style="width: 250px">
+					<h:outputText value="#{negativada.dataDivida}" >					
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</p:column>
+
+				<p:column style="width: 100px; text-align: center">
+
+					<p:commandButton rendered="#{negativada.pago == false}" icon="ui-icon-circle-arrow-s"
+						title="Baixar negativada"
+						oncomplete="PF('confirmacaoBaixa').show()" process="@this"
+						update=":frmPesquisa:confirmacaoBaixaDialog">
+						<f:setPropertyActionListener
+							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
+							value="#{negativada}" />
+					</p:commandButton>
+					<!-- 
+					<p:button outcome="/negativadas/CadastroNegativada"
+						icon="ui-icon-circle-arrow-s" title="Editar">
+						<f:param name="negativada" value="#{negativada.id}" />
+					</p:button>
+					
+				 -->
+					<p:commandButton rendered="#{seguranca.usuarioLogado.usuario.grupo.id == 1}" icon="ui-icon-trash" title="Excluir"
+						oncomplete="PF('confirmacaoExclusao').show()" process="@this"
+						update=":frmPesquisa:confirmacaoExclusaoDialog">
+						<f:setPropertyActionListener
+							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
+							value="#{negativada}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+			<p:confirmDialog header="Baixar negativação"
+				message="Tem certeza que deseja dar baixa na negativada de #{pesquisaNegativadasBean.negativadaSelecionado.pessoa.nome}, no valor de R$#{pesquisaNegativadasBean.negativadaSelecionado.valor}?"
+				widgetVar="confirmacaoBaixa" id="confirmacaoBaixaDialog">
+				<p:button value="Não"
+					onclick="PF('confirmacaoBaixa').hide(); return false;" />
+				<p:commandButton value="Sim"
+					oncomplete="PF('confirmacaoBaixa').hide();"
+					action="#{pesquisaNegativadasBean.baixa}" process="@this"
+					update=":frmPesquisa:negativadasTable" id="yesButton" />
+			</p:confirmDialog>
+
+			<p:confirmDialog header="Exclusão de negativada"
+				message="Tem certeza que deseja excluir a negativada #{pesquisaNegativadasBean.negativadaSelecionado.pessoa}?"
+				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
+				<p:button value="Não"
+					onclick="PF('confirmacaoExclusao').hide(); return false;" />
+				<p:commandButton value="Sim"
+					oncomplete="PF('confirmacaoExclusao').hide();"
+					action="#{pesquisaNegativadasBean.excluir}" process="@this"
+					update=":frmPesquisa:negativadasTable" id="yesButton2" />
+			</p:confirmDialog>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

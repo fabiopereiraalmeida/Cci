@@ -1,0 +1,125 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">#{cadastroUsuarioBean.editando ? 'Edição de usuario' : 'Novo usuario'}</ui:define>
+
+	<ui:define name="corpo">
+		<f:metadata>
+			<o:viewParam name="usuario" value="#{cadastroUsuarioBean.usuario}" />
+			<f:viewAction action="#{cadastroUsuarioBean.inicializar}" />
+		</f:metadata>
+
+		<h:form id="frm">
+			<p:focus context="frm" />
+
+			<h1>#{cadastroUsuarioBean.editando ? 'Edição de usuario' : 'Novo
+				usuario'}</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/usuarios/CadastroUsuario" />
+					<p:commandButton value="Salvar" id="botaoSalvar"
+						action="#{cadastroUsuarioBean.salvar}" update="@form"
+						validateClient="false" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" title="Pesquisar"
+						outcome="/usuarios/PesquisaUsuario" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Cod" for="cod" />
+				<h:outputText id="cod" value="#{cadastroUsuarioBean.usuario.id}" />
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="60" maxlength="80"
+					value="#{cadastroUsuarioBean.usuario.nome}" style="text-transform: uppercase" required="true" />
+
+				<p:outputLabel value="Usuario" for="usuario" />
+				<p:inputText id="usuario" size="50" maxlength="50"
+					value="#{cadastroUsuarioBean.usuario.usuario}" required="true" />
+
+				<p:outputLabel value="Senha" for="senha" />
+				<p:inputText id="senha" size="20" maxlength="20"
+					value="#{cadastroUsuarioBean.usuario.senha}" required="true" />
+					
+					<p:outputLabel value="Grupo" for="grupo" />
+				<p:selectOneMenu id="grupo"
+					value="#{cadastroUsuarioBean.usuario.grupo}">
+					<f:selectItem itemLabel="Selecione" />
+					<f:selectItems value="#{cadastroUsuarioBean.grupos}"
+						var="grupo" itemValue="#{grupo}"
+						itemLabel="#{grupo.nome}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="E-Mail" for="email" />
+				<p:inputText id="email" size="70" maxlength="70"
+					value="#{cadastroUsuarioBean.usuario.email}" style="text-transform: lowercase"/>
+
+				<p:outputLabel value="Telefone" for="telefone" />
+				<p:inputMask id="telefone"
+					value="#{cadastroUsuarioBean.usuario.telefone}"
+					mask="(99) 99999-9999" />
+
+				<p:outputLabel value="Ativo" for="ativo" />
+				<p:selectOneMenu id="ativo"
+					value="#{cadastroUsuarioBean.usuario.ativo}" required="true">
+					<f:selectItem itemValue="true" itemLabel="Sim" />
+					<f:selectItem itemValue="false" itemLabel="Não" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Empresa" for="empresa" />
+				<p:selectOneMenu id="empresa"
+					value="#{cadastroUsuarioBean.usuario.empresa}">
+					<f:selectItem itemLabel="Selecione" />
+					<f:selectItems value="#{cadastroUsuarioBean.empresas}"
+						var="empresa" itemValue="#{empresa}"
+						itemLabel="#{empresa.fantasia}" />
+				</p:selectOneMenu>
+
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+<!-- 
+				<p:panelGrid columns="2" id="painel_1"
+					style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+					<p:outputLabel value="Cod" for="cod" />
+					<p:inputText id="cod" size="20" maxlength="20" value="#{cadastroUsuarioBean.usuario.idUsuario}" />
+
+					<p:outputLabel value="Nome" for="nome" />
+					<p:inputText id="nome" size="60" maxlength="80" required="true"/>
+
+					<p:outputLabel value="Usuaio" for="usuario" />
+					<p:inputText id="usuario" size="20" maxlength="20" required="true"/>
+
+					<p:outputLabel value="Senha" for="senha" />
+					<p:inputText id="senha" size="20" maxlength="20" required="true"/>
+
+					<p:outputLabel value="Telefone" for="telefone" />
+					<p:inputText id="telefone" size="20" maxlength="20" />
+
+					<p:outputLabel value="E-mail" for="email" />
+					<p:inputText id="email" size="80" maxlength="80" />
+
+					<p:outputLabel value="Ativo" for="ativo" />
+					<p:inputText id="ativo" size="20" maxlength="20" />
+
+					<p:outputLabel value="Administrador" for="administrador" />
+					<p:inputText id="administrador" size="20" maxlength="20" />
+
+				</p:panelGrid>
+			
+			 -->

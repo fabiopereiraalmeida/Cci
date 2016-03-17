@@ -1,0 +1,126 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de pessoas</ui:define>
+
+	<ui:define name="corpo">
+		<h:form id="frmPesquisa">
+			<h1>Pesquisa de pessoas</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar"
+						action="#{pesquisaPessoasBean.pesquisar}" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Novo" outcome="/pessoas/CadastroPessoa" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+				<p:outputLabel value="CPF" for="cpf" />
+				<p:inputMask id="cpf" value="#{pesquisaPessoasBean.filtro.cpf}"
+					mask="999.999.999-99" />
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="60"
+					value="#{pesquisaPessoasBean.filtro.nome}" />
+
+				<p:outputLabel value="Apelido" for="apelido" />
+				<p:inputText id="apelido" size="50"
+					value="#{pesquisaPessoasBean.filtro.apelido}" />
+
+				<p:outputLabel value="Cidade" for="cidade" />
+				<p:inputText id="cidade" size="50"
+					value="#{pesquisaPessoasBean.filtro.cidade}" />
+			</p:panelGrid>
+
+			<p:dataTable id="pessoasTable"
+				value="#{pesquisaPessoasBean.pessoasFiltrados}" var="pessoa"
+				style="margin-top: 20px" emptyMessage="Nenhuma pessoa encontrada."
+				rows="20" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+				<p:column headerText="Cod" style="text-align: center; width: 50px">
+					<h:outputText value="#{pessoa.id}" />
+				</p:column>
+				<p:column headerText="CPF" style="text-align: center; width: 150px">
+					<h:outputText value="#{pessoa.cpf}" />
+				</p:column>
+				<p:column headerText="Nome" style="width: 400px">
+					<h:outputText value="#{pessoa.nome}"
+						style="text-transform: uppercase" />
+				</p:column>
+				<p:column headerText="Cidade" style="width: 250px">
+					<h:outputText value="#{pessoa.cidade}"
+						style="text-transform: uppercase" />
+				</p:column>
+				<p:column headerText="Apelido" style="width: 150px">
+					<h:outputText value="#{pessoa.apelido}"
+						style="text-transform: uppercase" />
+				</p:column>
+				<!-- 
+				<p:column headerText="RG" style="text-align: right; width: 120px">
+					<h:outputText value="#{pessoa.rg}" />
+				</p:column>
+				 -->
+				<p:column headerText="Negativado"
+					style="text-align: center; width: 80px">
+					<h:outputText rendered="#{pessoa.bloqueado == true}" value="Sim" />
+					<h:outputText rendered="#{pessoa.bloqueado == false}" value="Não" />
+				</p:column>
+
+				<p:column style="width: 140px; text-align: center"
+					headerText="Opções">
+					<p:button outcome="/negativadas/PesquisaNegativadaPessoa"
+						icon="ui-icon-search" title="Consultar">
+						<f:param name="pessoa" value="#{pessoa.id}" />
+					</p:button>
+					<p:button outcome="/pessoas/DetalhesPessoa" icon="ui-icon-info"
+						title="Detalhes">
+						<f:param name="pessoa" value="#{pessoa.id}" />
+					</p:button>
+					<!-- 
+					<p:row>rendered="#{grupoLogado.administrador}">
+						<p:button outcome="/pessoas/CadastroPessoa" icon="ui-icon-pencil"
+							title="Editar">
+							<f:param name="pessoa" value="#{pessoa.id}" />
+						</p:button>
+					</p:row>
+					 -->
+					 
+					 <p:button rendered="#{seguranca.usuarioLogado.usuario.grupo.id == 1}" outcome="/pessoas/CadastroPessoa" icon="ui-icon-pencil"
+							title="Editar">
+							<f:param name="pessoa" value="#{pessoa.id}" />
+						</p:button>
+					 
+					<p:commandButton rendered="#{seguranca.usuarioLogado.usuario.grupo.id == 1}" icon="ui-icon-trash" title="Excluir"
+						oncomplete="PF('confirmacaoExclusao').show()" process="@this"
+						update=":frmPesquisa:confirmacaoExclusaoDialog">
+						<f:setPropertyActionListener
+							target="#{pesquisaPessoasBean.pessoaSelecionado}"
+							value="#{pessoa}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+			<p:confirmDialog header="Exclusão de pessoa"
+				message="Tem certeza que deseja excluir a pessoa #{pesquisaPessoasBean.pessoaSelecionado.nome}?"
+				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
+				<p:button value="Não"
+					onclick="PF('confirmacaoExclusao').hide(); return false;" />
+				<p:commandButton value="Sim"
+					oncomplete="PF('confirmacaoExclusao').hide();"
+					action="#{pesquisaPessoasBean.excluir}" process="@this"
+					update=":frmPesquisa:pessoasTable" id="yesButton" />
+			</p:confirmDialog>
+		</h:form>
+	</ui:define>
+</ui:composition>

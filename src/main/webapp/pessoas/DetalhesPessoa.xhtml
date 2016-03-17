@@ -1,0 +1,120 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo pessoa'}</ui:define>
+
+	<ui:define name="corpo">
+		<f:metadata>
+			<o:viewParam name="pessoa" value="#{cadastroPessoaBean.pessoa}" />
+			<f:viewAction action="#{cadastroPessoaBean.inicializar}" />
+		</f:metadata>
+
+		<h:form id="frm">
+			<p:focus context="frm" />
+
+			<h1>#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo
+				pessoa'}</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/pessoas/CadastroPessoa" />
+					<p:commandButton value="Salvar" id="botaoSalvar"
+						action="#{cadastroPessoaBean.salvar}" update="@form"
+						validateClient="false" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" title="Pesquisar"
+						outcome="/pessoas/PesquisaPessoa" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Cod" for="cod" />
+				<h:outputText id="cod" value="#{cadastroPessoaBean.pessoa.id}" />
+
+				<p:outputLabel value="Nome" for="nome" />
+				<h:outputText id="nome" value="#{cadastroPessoaBean.pessoa.nome}" />
+
+				<p:outputLabel value="Apelido" for="apelido" />
+				<h:outputText id="apelido"
+					value="#{cadastroPessoaBean.pessoa.apelido}" />
+
+				<p:outputLabel value="Endereço" for="endereco" />
+				<h:outputText id="endereco"
+					value="#{cadastroPessoaBean.pessoa.endereco}" />
+
+				<p:outputLabel value="Numero" for="numero" />
+				<h:outputText id="numero"
+					value="#{cadastroPessoaBean.pessoa.enderecoNumero}" />
+
+				<p:outputLabel value="Bairro" for="bairro" />
+				<h:outputText id="bairro"
+					value="#{cadastroPessoaBean.pessoa.bairro}" />
+
+				<p:outputLabel value="Cidade" for="cidade" />
+				<h:outputText id="cidade"
+					value="#{cadastroPessoaBean.pessoa.cidade}" />
+
+				<p:outputLabel value="UF" for="uf" />
+				<h:outputText id="uf" value="#{cadastroPessoaBean.pessoa.estado}" />
+
+				<p:outputLabel value="CEP" for="cep" />
+				<h:outputText id="cep" value="#{cadastroPessoaBean.pessoa.cep}" />
+
+				<p:outputLabel value="Telefone fixo" for="telFixo" />
+				<h:outputText id="telFixo"
+					value="#{cadastroPessoaBean.pessoa.telefoneFixo}" />
+
+				<p:outputLabel value="Telefone movel" for="telMovel" />
+				<h:outputText id="telMovel"
+					value="#{cadastroPessoaBean.pessoa.telefoneMovel}" />
+
+				<p:outputLabel value="Nome da mãe" for="nomeMae" />
+				<h:outputText id="nomeMae"
+					value="#{cadastroPessoaBean.pessoa.nomeMae}" />
+
+				<p:outputLabel value="Nome do pai" for="nomePai" />
+				<h:outputText id="nomePai"
+					value="#{cadastroPessoaBean.pessoa.nomePai}" />
+
+				<p:outputLabel value="CPF" for="cpf" />
+				<h:outputText id="cpf" value="#{cadastroPessoaBean.pessoa.cpf}" />
+				
+				<p:outputLabel value="CNPJ" for="cnpj" />
+				<h:outputText id="cnpj" value="#{cadastroPessoaBean.pessoa.cnpj}" />
+
+				<p:outputLabel value="RG" for="rg" />
+				<h:outputText id="rg" value="#{cadastroPessoaBean.pessoa.rg}" />
+
+				<p:outputLabel value="Data nascimento" for="dtNacimento" />
+				<h:outputText id="dtNacimento"
+					value="#{cadastroPessoaBean.pessoa.dataNacimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+
+				<p:outputLabel value="Sexo" for="sexo" />
+				<h:outputText id="sexo" value="#{cadastroPessoaBean.pessoa.sexo?'Masculino':'Feminino'}" />
+				
+				<p:outputLabel value="E-mail" for="email" />
+				<h:outputText id="email" value="#{cadastroPessoaBean.pessoa.email}" />
+
+				<p:outputLabel value="Data cadastro" for="dtcadastro" />
+				<h:outputText id="dtcadastro"
+					value="#{cadastroPessoaBean.pessoa.dataCadastro}">
+					<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+				</h:outputText>
+
+
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
