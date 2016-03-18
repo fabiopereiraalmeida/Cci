@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
-<!-- 2016-03-17T10:35:04 -->
+<!-- 2016-02-18T16:17:14 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoio_todas_pessoas" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Y2NpY29uc18wMS5wZXNzb2EgLDE1LDE1LDgxMmNmMjAyLTMxNTEtNGViMi04MjhlLTYyNDE5ZTgy&#xA;MjM3Mzs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ccinacional"/>
 	<style name="Title" fontName="DejaVu Sans" fontSize="50" isBold="true"/>
 	<style name="SubTitle" forecolor="#736343" fontName="DejaVu Sans" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="DejaVu Sans" fontSize="12" isBold="true"/>
@@ -13,7 +14,6 @@
 			<style backcolor="#E6DAC3"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="ID_EMPRESA" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT ccicons_01.pessoa.id,
 	ccicons_01.pessoa.apelido,
@@ -34,8 +34,7 @@
 	ccicons_01.pessoa.sexo,
 	ccicons_01.pessoa.rg,
 	ccicons_01.pessoa.telefone_fixo,
-	ccicons_01.pessoa.telefone_movel,
-	ccicons_01.pessoa.empresa_id
+	ccicons_01.pessoa.telefone_movel
 FROM ccicons_01.pessoa]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
@@ -194,9 +193,6 @@ FROM ccicons_01.pessoa]]>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="fa7cec56-4ec1-48e6-a26e-7266a995d174"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="0" y="0" width="40" height="15" uuid="5f155506-2d03-42da-8e71-2ec01f1ad25d"/>
-					<textElement>
-						<font size="10"/>
-					</textElement>
 					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
@@ -277,7 +273,7 @@ FROM ccicons_01.pessoa]]>
 					<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement style="Column header" x="22" y="1" width="198" height="20" forecolor="#736343" uuid="fbce24bb-3cb1-44a3-8eec-8c067ddbe5b5"/>
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="fbce24bb-3cb1-44a3-8eec-8c067ddbe5b5"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>

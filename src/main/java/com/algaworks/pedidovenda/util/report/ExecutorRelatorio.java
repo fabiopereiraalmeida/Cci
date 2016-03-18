@@ -31,6 +31,8 @@ public class ExecutorRelatorio implements Work {
 	
 	private boolean relatorioGerado;
 	
+	private Connection conn = com.algaworks.pedidovenda.util.ConectaBanco.getConnection();
+	
 	public ExecutorRelatorio(String caminhoRelatorio,
 			HttpServletResponse response, Map<String, Object> parametros,
 			String nomeArquivoSaida) {
@@ -40,12 +42,26 @@ public class ExecutorRelatorio implements Work {
 		this.nomeArquivoSaida = nomeArquivoSaida;
 		
 		this.parametros.put(JRParameter.REPORT_LOCALE, new Locale("pt", "BR"));
+		
+		/*
+		try {
+			execute(conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
 	}
 
-	@Override
+	//@Override
 	public void execute(Connection connection) throws SQLException {
+	
+		//connection = conn;
+		
 		try {
 			InputStream relatorioStream = this.getClass().getResourceAsStream(this.caminhoRelatorio);
+			
+			//parametros.put("ID_EMPRESA", "1");
 			
 			JasperPrint print = JasperFillManager.fillReport(relatorioStream, this.parametros, connection);
 			this.relatorioGerado = print.getPages().size() > 0;

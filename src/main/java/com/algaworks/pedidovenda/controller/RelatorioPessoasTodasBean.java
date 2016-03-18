@@ -1,6 +1,8 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.Session;
 
+import com.algaworks.pedidovenda.util.jpa.EntityManagerProducer;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 import com.algaworks.pedidovenda.util.report.ExecutorRelatorio;
 
@@ -35,15 +38,22 @@ public class RelatorioPessoasTodasBean implements Serializable {
 
 	@Inject
 	private EntityManager manager;
+	
+	//private EntityManagerProducer entityManagerProducer = new EntityManagerProducer();
+	
+	//private Connection conn = com.algaworks.pedidovenda.util.ConectaBanco.getConnection();
 
 	public void emitir() {
+		//manager = entityManagerProducer.createEntityManager();
+		
 		Map<String, Object> parametros = new HashMap<>();
 		//parametros.put("data_inicio", this.dataInicio);
 		//parametros.put("data_fim", this.dataFim);
+		//parametros.put("ID_EMPRESA", "1");		
 		
 		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/relatoio_todas_pessoas.jasper",
 				this.response, parametros, "TodasPessoas.pdf");
-		
+				
 		Session session = manager.unwrap(Session.class);
 		session.doWork(executor);
 		
@@ -52,6 +62,7 @@ public class RelatorioPessoasTodasBean implements Serializable {
 		} else {
 			FacesUtil.addErrorMessage("A execução do relatório não retornou dados.");
 		}
+		
 	}
 /*
 	@NotNull
