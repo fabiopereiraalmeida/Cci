@@ -15,8 +15,10 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.Session;
 
+import com.algaworks.pedidovenda.model.Negativada;
 import com.algaworks.pedidovenda.model.Pessoa;
 import com.algaworks.pedidovenda.security.Seguranca;
+import com.algaworks.pedidovenda.util.ConectaBanco;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 import com.algaworks.pedidovenda.util.report.ExecutorRelatorio;
 
@@ -26,23 +28,28 @@ public class CartaComunicadoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	//private Pessoa pessoa;
+	//private Negativada negativadaSelecionado;
+	private  Pessoa pessoa;
 	
 	//private Date dataInicio;
 	//private Date dataFim;
 
 	@Inject
-	private FacesContext facesContext;
+	private  FacesContext facesContext;
 
 	@Inject
-	private HttpServletResponse response;
+	private  HttpServletResponse response;
 
 	@Inject
-	private EntityManager manager;
+	private  EntityManager manager;
 	
-	private Seguranca seguranca = new Seguranca();
+	private  Seguranca seguranca = new Seguranca();
 
-	public void emitir(Pessoa pessoa) {
+	public  void emitir() {
+		
+		//FacesUtil.addInfoMessage("A Carta de " + pessoa.getNome() 
+		//+ " foi gerada com sucesso!!!.");
+		
 		Map<String, Object> parametros = new HashMap<>();
 		
 		String nome = "";
@@ -113,5 +120,15 @@ public class CartaComunicadoBean implements Serializable {
 		this.dataFim = dataFim;
 	}
 */
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	
 	
 }

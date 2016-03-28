@@ -55,6 +55,7 @@ public class RelatorioPessoasTodasBean implements Serializable {
 				this.response, parametros, "TodasPessoas.pdf");
 				
 		Session session = manager.unwrap(Session.class);
+		//Session session = (Session) entitymanager.getDelegate(); 
 		session.doWork(executor);
 		
 		if (executor.isRelatorioGerado()) {

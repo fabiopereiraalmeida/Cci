@@ -8,8 +8,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.pedidovenda.model.Negativada;
+import com.algaworks.pedidovenda.model.Pessoa;
 import com.algaworks.pedidovenda.repository.Negativadas;
+import com.algaworks.pedidovenda.repository.Pessoas;
 import com.algaworks.pedidovenda.repository.filter.NegativadaFilter;
+import com.algaworks.pedidovenda.repository.filter.PessoaFilter;
 import com.algaworks.pedidovenda.security.Seguranca;
 import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
@@ -29,6 +32,9 @@ public class PesquisaNegativadasBean implements Serializable {
 	private Negativada negativadaSelecionado;
 	
 	private Seguranca seguranca = new Seguranca();
+	
+	private Pessoa pessoa;
+	private CartaComunicadoBean cartaComunicadoBean = new CartaComunicadoBean();
 	
 	public PesquisaNegativadasBean() {
 		filtro = new NegativadaFilter();
@@ -55,6 +61,22 @@ public class PesquisaNegativadasBean implements Serializable {
 		} catch (Exception e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
+		
+	}
+	
+	public void emitirCarta() {
+		
+		pessoa = negativadaSelecionado.getPessoa();
+				
+		//FacesUtil.addInfoMessage("A Carta de " + negativadaSelecionado.getPessoa().getNome() 
+		//		+ " foi gerada com sucesso.");
+		
+		//FacesUtil.addInfoMessage("A Carta de " + pessoa.getNome() 
+		//		+ " foi gerada com sucesso!!.");
+				
+		//CartaComunicadoBean cartaComunicadoBean = new CartaComunicadoBean();
+		cartaComunicadoBean.setPessoa(pessoa);	
+		cartaComunicadoBean.emitir();			
 		
 	}
 	

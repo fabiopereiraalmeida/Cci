@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
-<!-- 2016-02-15T23:47:03 -->
+<!-- 2016-03-24T10:40:49 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comunicado" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3f0fe8f-1ee8-4060-812a-87e276619e75">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="NOME_EMPRESA" class="java.lang.String"/>
 	<parameter name="NOME_PESSOA" class="java.lang.String"/>
 	<parameter name="ENDERECO" class="java.lang.String"/>
@@ -71,94 +70,110 @@
 	<pageHeader>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="110" y="10" width="319" height="30" uuid="ab627ca4-394f-4be0-a505-8a8f8c6d37dd"/>
+				<reportElement stretchType="RelativeToTallestObject" x="110" y="10" width="319" height="30" uuid="ab627ca4-394f-4be0-a505-8a8f8c6d37dd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Consultoria Comercial e Cobranças]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="110" y="40" width="319" height="30" uuid="ed1c2d70-7aef-412d-8b09-87a587d9cc32"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="16"/>
+					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[COMUNICADO EXTRA JUDICIAL]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="366" splitType="Stretch">
+		<band height="455" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="10" width="90" height="20" uuid="003a8512-eb7c-4b07-b722-2b436539b53f"/>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[Prezado (a) Sr.(a)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="30" width="550" height="30" uuid="aaaad095-6979-4794-8056-d411ce4c7d29"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="0" y="31" width="552" height="30" uuid="aaaad095-6979-4794-8056-d411ce4c7d29"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[	Consta em nossos registros a pendência de pagamento dos valores relativos à compra realizada, sob sua responsabilidade, como segue:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="70" width="50" height="20" uuid="d733f10a-f494-48e4-9909-266f288940d0"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="0" y="70" width="59" height="20" uuid="d733f10a-f494-48e4-9909-266f288940d0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[Empresa:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="90" width="550" height="50" uuid="787a47dc-8aa1-4ab6-8866-653f8f88ec9c"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="0" y="100" width="552" height="70" uuid="787a47dc-8aa1-4ab6-8866-653f8f88ec9c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[	Consta em nossos registros a pendência de pagamento dos valores relativos à compra A fim de evitarmos maiores problemas como cancelamento de crédito junto ao comércio e apontamento de seu nome junto aos órgãos nacionais de proteção ao crédito, solicitamos a V.S.a o comparecimento no respectivo comércio no PRAZO DE 10 DIAS  para a quitação do débito.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="150" width="550" height="20" uuid="b5da7e14-3d28-4853-991e-2b162cd04ab8"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="0" y="173" width="552" height="37" uuid="b5da7e14-3d28-4853-991e-2b162cd04ab8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[	Notificamos ainda que o referido débito será acrescido de juros e taxa de reabilitação de crédito.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="180" width="550" height="30" uuid="9b50e9b9-8263-4e0e-b2cf-989547b43202"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão adotadas.]]></text>
+				<reportElement x="0" y="214" width="552" height="36" uuid="9b50e9b9-8263-4e0e-b2cf-989547b43202"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[	Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão adotadas.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="220" width="550" height="50" uuid="c6f9cb7e-8e08-4980-bed5-b928feceff56"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isItalic="true"/>
+				<reportElement x="0" y="256" width="552" height="64" uuid="c6f9cb7e-8e08-4980-bed5-b928feceff56"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão Para qualquer informação, gentileza entrar em contato com a CCI – Base Nacional de Proteção ao Crédito e Cobranças pelo fone (77)9 8118-0515, (77)9 8822-3010, (77)9 9134-6532, (77)9 9949-1481 ou no endereço Rua Zeferino carinhanha, 232 – Centro – Caculé – BA.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="276" width="550" height="20" uuid="434b3238-bbb2-4627-bccd-f69184e9da2a"/>
+				<reportElement x="2" y="335" width="550" height="20" uuid="434b3238-bbb2-4627-bccd-f69184e9da2a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isItalic="true"/>
+					<font size="12" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[No aguardo de seu pronto atendimento a presente, subscrevemo-nos.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="308" width="550" height="20" uuid="9bc5ec0a-45cb-493e-8bb7-a44336953863"/>
+				<reportElement x="-1" y="358" width="550" height="20" uuid="9bc5ec0a-45cb-493e-8bb7-a44336953863"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isItalic="true"/>
+					<font size="12" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[(Caso já tenha efetuado o pagamento, desconsidere este comunicado).]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="181" y="340" width="38" height="18" uuid="81ec8c09-f56d-4c41-b602-903569a84840"/>
+				<reportElement x="181" y="410" width="38" height="18" uuid="81ec8c09-f56d-4c41-b602-903569a84840"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Caculé,]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="226" y="340" width="197" height="18" forecolor="#000000" uuid="ff6240ec-6000-4d46-afa1-3070327ba9e7"/>
+				<reportElement x="226" y="410" width="197" height="18" forecolor="#000000" uuid="ff6240ec-6000-4d46-afa1-3070327ba9e7"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="56" y="70" width="464" height="20" uuid="5c81c44a-e4e1-4c7d-8b6e-d27fe52cd210"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="59" y="70" width="493" height="20" uuid="5c81c44a-e4e1-4c7d-8b6e-d27fe52cd210"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="97" y="10" width="326" height="20" uuid="39c783bc-c3dd-4d55-9d86-c2e519c50dfd"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="97" y="10" width="455" height="20" uuid="39c783bc-c3dd-4d55-9d86-c2e519c50dfd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{NOME_PESSOA}]]></textFieldExpression>
 			</textField>
 		</band>

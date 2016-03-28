@@ -1,5 +1,6 @@
 package com.algaworks.pedidovenda.util.report;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -28,10 +30,9 @@ public class ExecutorRelatorio implements Work {
 	private HttpServletResponse response;
 	private Map<String, Object> parametros;
 	private String nomeArquivoSaida;
+	//private Connection conn = com.algaworks.pedidovenda.util.ConectaBanco.getConnection();
 	
 	private boolean relatorioGerado;
-	
-	private Connection conn = com.algaworks.pedidovenda.util.ConectaBanco.getConnection();
 	
 	public ExecutorRelatorio(String caminhoRelatorio,
 			HttpServletResponse response, Map<String, Object> parametros,
@@ -42,41 +43,34 @@ public class ExecutorRelatorio implements Work {
 		this.nomeArquivoSaida = nomeArquivoSaida;
 		
 		this.parametros.put(JRParameter.REPORT_LOCALE, new Locale("pt", "BR"));
-		
-		/*
-		try {
-			execute(conn);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
 	}
 
-	//@Override
+	@Override
+	//public void execute(Connection connection) throws SQLException {
 	public void execute(Connection connection) throws SQLException {
-	
-		//connection = conn;
-		
+				
 		try {
 			InputStream relatorioStream = this.getClass().getResourceAsStream(this.caminhoRelatorio);
 			
-			//parametros.put("ID_EMPRESA", "1");
+			JasperPrint print = null;
+				print = JasperFillManager.fillReport(relatorioStream, this.parametros, connection);
 			
-			JasperPrint print = JasperFillManager.fillReport(relatorioStream, this.parametros, connection);
 			this.relatorioGerado = print.getPages().size() > 0;
 			
 			if (this.relatorioGerado) {
 				Exporter<ExporterInput, PdfReportConfiguration, PdfExporterConfiguration, 
 			    	OutputStreamExporterOutput> exportador = new JRPdfExporter();
 				exportador.setExporterInput(new SimpleExporterInput(print));
-				exportador.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream()));
+				
+					exportador.setExporterOutput(new SimpleOutputStreamExporterOutput(response.getOutputStream()));
+				
 				
 				response.setContentType("application/pdf");
 				response.setHeader("Content-Disposition", "attachment; filename=\"" 
 						+ this.nomeArquivoSaida  + "\"");
 				
-				exportador.exportReport();
+					exportador.exportReport();
+				
 			}
 		} catch (Exception e) {
 			throw new SQLException("Erro ao executar relatório " + this.caminhoRelatorio, e);

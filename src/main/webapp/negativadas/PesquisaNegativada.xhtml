@@ -75,6 +75,13 @@
 							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
 							value="#{negativada}" />
 					</p:commandButton>
+					
+					<p:commandButton icon="ui-icon-print" title="Carta comunicado" action="#{pesquisaNegativadasBean.emitirCarta}">
+					<f:setPropertyActionListener
+							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
+							value="#{negativada}" />					
+					</p:commandButton>
+					
 					<!-- 
 					<p:button outcome="/negativadas/CadastroNegativada"
 						icon="ui-icon-circle-arrow-s" title="Editar">

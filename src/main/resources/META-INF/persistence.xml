@@ -11,6 +11,7 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ccicons_01" />
 			<property name="javax.persistence.jdbc.user" value="ccicons_user" />
 			<property name="javax.persistence.jdbc.password" value="p3p3r0n1#" />
+			 
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			
 			<property name="hibernate.hbm2ddl.auto" value="update" />
