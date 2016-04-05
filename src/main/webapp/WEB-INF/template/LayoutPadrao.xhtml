@@ -70,7 +70,7 @@
 							<p:menuitem value="Todas as negativadas" rendered="#{seguranca.usuarioLogado.usuario.grupo.id == 1}" action="#{relatorioNegarivadasTodasBean.emitir}" ajax="false"/>
 							<p:menuitem value="Negativadas da empresa" action="#{relatorioNegarivadasEmpresaBean.emitir}" ajax="false"/>
 							<p:menuitem value="Pessoas da empresa" action="#{relatorioPessoasEmpresaBean.emitir}" ajax="false"/>
-							
+														
 						</p:submenu>
 						<p:menuitem value="Sair" url="/j_spring_security_logout" />
 					</p:menubar>

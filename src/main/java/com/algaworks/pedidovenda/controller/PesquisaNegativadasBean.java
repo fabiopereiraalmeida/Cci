@@ -1,11 +1,18 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
 
 import com.algaworks.pedidovenda.model.Negativada;
 import com.algaworks.pedidovenda.model.Pessoa;
@@ -16,6 +23,7 @@ import com.algaworks.pedidovenda.repository.filter.PessoaFilter;
 import com.algaworks.pedidovenda.security.Seguranca;
 import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
+import com.algaworks.pedidovenda.util.report.ExecutorRelatorio;
 
 @Named
 @ViewScoped
@@ -34,7 +42,18 @@ public class PesquisaNegativadasBean implements Serializable {
 	private Seguranca seguranca = new Seguranca();
 	
 	private Pessoa pessoa;
-	private CartaComunicadoBean cartaComunicadoBean = new CartaComunicadoBean();
+	//private CartaComunicadoBean cartaComunicadoBean = new CartaComunicadoBean();
+	
+	
+	@Inject
+	private FacesContext facesContext;
+
+	@Inject
+	private HttpServletResponse response;
+
+	@Inject
+	private EntityManager manager;
+		
 	
 	public PesquisaNegativadasBean() {
 		filtro = new NegativadaFilter();
@@ -75,8 +94,63 @@ public class PesquisaNegativadasBean implements Serializable {
 		//		+ " foi gerada com sucesso!!.");
 				
 		//CartaComunicadoBean cartaComunicadoBean = new CartaComunicadoBean();
-		cartaComunicadoBean.setPessoa(pessoa);	
-		cartaComunicadoBean.emitir();			
+		//cartaComunicadoBean.setPessoa(pessoa);	
+		//cartaComunicadoBean.emitir(pessoa);			
+		
+		//cartaComunicadoBean.emitir();
+		
+		
+		Map<String, Object> parametros = new HashMap<>();
+		
+		String nome = "";
+		String endereco = "";
+		String numero = "";
+		String cidade = "";
+		String CEP = "";
+		
+		if (pessoa.getNome() != null) {
+			nome = pessoa.getNome();
+		}else if (pessoa.getApelido() != null) {
+			nome = pessoa.getApelido();
+		}
+		
+		if (pessoa.getEndereco() != null) {
+			endereco = pessoa.getEndereco();
+		}
+		
+		if (pessoa.getEnderecoNumero() != null) {
+			numero = pessoa.getEnderecoNumero();
+		}
+		
+		if (pessoa.getCidade() != null) {
+			cidade = pessoa.getCidade();
+		}
+		
+		if (pessoa.getCep() != null) {
+			CEP = pessoa.getCep();
+		}
+		
+		parametros.put("NOME_PESSOA", nome);
+		parametros.put("ENDERECO", endereco + " Nº " + numero);
+		parametros.put("CIDADE", cidade);
+		parametros.put("CEP", CEP);
+		parametros.put("NOME_EMPRESA", "EMPRESA TESTE");
+		
+		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/comunicado.jasper",
+				response, parametros, "Comunicado.pdf");
+		
+		Session session = manager.unwrap(Session.class);
+		session.doWork(executor);
+		
+		if (executor.isRelatorioGerado()) {
+			facesContext.responseComplete();
+			
+			FacesUtil.addInfoMessage("A Carta de " + pessoa.getNome() 
+			+ " foi gerada com sucesso!!.");
+			
+		} else {
+			FacesUtil.addErrorMessage("A execução do relatório não retornou dados.");
+		}
 		
 	}
 	

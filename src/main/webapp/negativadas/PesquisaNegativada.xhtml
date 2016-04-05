@@ -76,10 +76,10 @@
 							value="#{negativada}" />
 					</p:commandButton>
 					
-					<p:commandButton icon="ui-icon-print" title="Carta comunicado" action="#{pesquisaNegativadasBean.emitirCarta}">
-					<f:setPropertyActionListener
+					<p:commandButton icon="ui-icon-print" title="Carta comunicado" action="#{pesquisaNegativadasBean.emitirCarta}" process="@this">
+						<f:setPropertyActionListener
 							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
-							value="#{negativada}" />					
+							value="#{negativada}" />							 					
 					</p:commandButton>
 					
 					<!-- 

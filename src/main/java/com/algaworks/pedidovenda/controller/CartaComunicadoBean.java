@@ -1,7 +1,6 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,14 +10,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.Session;
 
-import com.algaworks.pedidovenda.model.Negativada;
-import com.algaworks.pedidovenda.model.Pessoa;
 import com.algaworks.pedidovenda.security.Seguranca;
-import com.algaworks.pedidovenda.util.ConectaBanco;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 import com.algaworks.pedidovenda.util.report.ExecutorRelatorio;
 
@@ -29,26 +24,29 @@ public class CartaComunicadoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	//private Negativada negativadaSelecionado;
-	private  Pessoa pessoa;
+	//private  Pessoa pessoa;
 	
 	//private Date dataInicio;
 	//private Date dataFim;
 
 	@Inject
-	private  FacesContext facesContext;
+	private FacesContext facesContext;
 
 	@Inject
-	private  HttpServletResponse response;
+	private HttpServletResponse response;
 
 	@Inject
-	private  EntityManager manager;
+	private EntityManager manager;
 	
-	private  Seguranca seguranca = new Seguranca();
+	private Seguranca seguranca = new Seguranca();
 
-	public  void emitir() {
+	//public  void emitir(Pessoa p) {
+	public void emitir() {
 		
 		//FacesUtil.addInfoMessage("A Carta de " + pessoa.getNome() 
 		//+ " foi gerada com sucesso!!!.");
+		
+		//Pessoa pessoa = pessoas.porId(p.getId());
 		
 		Map<String, Object> parametros = new HashMap<>();
 		
@@ -57,40 +55,65 @@ public class CartaComunicadoBean implements Serializable {
 		String numero = "";
 		String cidade = "";
 		String CEP = "";
-		
-		if (pessoa.getNome() != null) {
-			nome = pessoa.getNome();
-		}else if (pessoa.getApelido() != null) {
-			nome = pessoa.getApelido();
+		/*
+		if (p.getNome() != null) {
+			nome = p.getNome();
+		}else if (p.getApelido() != null) {
+			nome = p.getApelido();
 		}
-		
+		*/
 		parametros.put("NOME_PESSOA", nome);
-		
-		if (pessoa.getEndereco() != null) {
-			endereco = pessoa.getEndereco();
+		//parametros.put("NOME_PESSOA", "PESSOA");
+		/*
+		if (p.getEndereco() != null) {
+			endereco = p.getEndereco();
 		}
 		
-		if (pessoa.getEnderecoNumero() != null) {
-			numero = pessoa.getEnderecoNumero();
+		if (p.getEnderecoNumero() != null) {
+			numero = p.getEnderecoNumero();
 		}
-		
+		*/
 		parametros.put("ENDERECO", endereco + " Nº " + numero);
-		
-		if (pessoa.getCidade() != null) {
-			cidade = pessoa.getCidade();
+		//parametros.put("ENDERECO", "ENDERECO Nº 00");
+		/*
+		if (p.getCidade() != null) {
+			cidade = p.getCidade();
 		}
-		
+		*/
 		parametros.put("CIDADE", cidade);
-		
-		if (pessoa.getCep() != null) {
-			CEP = pessoa.getCep();
+		//parametros.put("CIDADE", "CIDADE");
+		/*
+		if (p.getCep() != null) {
+			CEP = p.getCep();
 		}
+		*/
+		
 		parametros.put("CEP", CEP);
+		//parametros.put("CEP", "XXXX");
 		
-		parametros.put("NOME_EMPRESA", seguranca.getUsuarioLogado().getUsuario().getEmpresa().getFantasia());
-		
+		//parametros.put("NOME_EMPRESA", seguranca.getUsuarioLogado().getUsuario().getEmpresa().getFantasia());
+		parametros.put("NOME_EMPRESA", "EMPRESA TESTE");
+		/*
 		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/comunicado.jasper",
 				this.response, parametros, "Comunicado.pdf");
+
+		Session session = manager.unwrap(Session.class);
+		session.doWork(executor);
+		
+		if (executor.isRelatorioGerado()) {
+			facesContext.responseComplete();
+		} else {
+			FacesUtil.addErrorMessage("A execução do relatório não retornou dados.");
+		}
+			*/
+		
+		
+		//Map<String, Object> parametros = new HashMap<>();
+		//parametros.put("ID_EMPRESA", seguranca.getUsuarioLogado().getUsuario().getEmpresa().getId());
+		//parametros.put("data_fim", this.dataFim);
+		
+		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/comunicado.jasper",
+				response, parametros, "Comunicado.pdf");
 		
 		Session session = manager.unwrap(Session.class);
 		session.doWork(executor);
@@ -100,6 +123,7 @@ public class CartaComunicadoBean implements Serializable {
 		} else {
 			FacesUtil.addErrorMessage("A execução do relatório não retornou dados.");
 		}
+		
 	}
 /*
 	@NotNull
@@ -120,7 +144,7 @@ public class CartaComunicadoBean implements Serializable {
 		this.dataFim = dataFim;
 	}
 */
-
+/*
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -128,7 +152,7 @@ public class CartaComunicadoBean implements Serializable {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
+*/
 	
 	
 }
