@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.jasperreports.engine.JRException;

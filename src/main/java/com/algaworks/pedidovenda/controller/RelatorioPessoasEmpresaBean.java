@@ -23,9 +23,6 @@ public class RelatorioPessoasEmpresaBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	//private Date dataInicio;
-	//private Date dataFim;
-
 	@Inject
 	private FacesContext facesContext;
 
@@ -38,12 +35,12 @@ public class RelatorioPessoasEmpresaBean implements Serializable {
 	private Seguranca seguranca = new Seguranca();
 
 	public void emitir() {
+		
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("ID_EMPRESA", seguranca.getUsuarioLogado().getUsuario().getEmpresa().getId());
-		//parametros.put("data_fim", this.dataFim);
 		
-		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/relatorio_pessoas_por_empresa.jasper",
-				this.response, parametros, "TodasPessoasPelaEmpresa.pdf");
+		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/relatoio_pessoas_por_empresa.jasper",
+				this.response, parametros, "TodasPessoasDaEmpresa.pdf");
 		
 		Session session = manager.unwrap(Session.class);
 		session.doWork(executor);

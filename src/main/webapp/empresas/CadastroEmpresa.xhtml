@@ -16,111 +16,130 @@
 		<h:form id="frm">
 			<p:focus context="frm" />
 
-			<h1>#{cadastroEmpresaBean.editando ? 'Edição de empresa' : 'Novo
-				empresa'}</h1>
+			<div align="center">
+				<h1>#{cadastroEmpresaBean.editando ? 'Edição de empresa' :
+					'Novo empresa'}</h1>
+			</div>
 
 			<p:messages autoUpdate="true" closable="true" />
 
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:button value="Novo" outcome="/empresas/CadastroEmpresa" />
-					<p:commandButton value="Salvar" id="botaoSalvar"
-						action="#{cadastroEmpresaBean.salvar}" update="@form"
-						validateClient="false" />
-				</p:toolbarGroup>
-				<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" title="Pesquisar"
-						outcome="/empresas/PesquisaEmpresa" />
-				</p:toolbarGroup>
-			</p:toolbar>
+			<div align="center">
+				<p:toolbar style="margin-top: 20px; width: 80%">
+					<p:toolbarGroup>
+						<p:button value="Novo" outcome="/empresas/CadastroEmpresa" />
+						<p:commandButton value="Salvar" id="botaoSalvar"
+							action="#{cadastroEmpresaBean.salvar}" update="@form"
+							validateClient="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button value="Pesquisa" title="Pesquisar"
+							outcome="/empresas/PesquisaEmpresa" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
 
-			<p:panelGrid columns="2" id="painel"
-				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+			<div align="center">
+				<p:panelGrid columns="2" id="painel"
+					style="width: 80%; margin-top: 20px" columnClasses="rotulo, campo">
 
-				<p:outputLabel value="Cod." for="cod" />
-				<h:outputText id="cod" value="#{cadastroEmpresaBean.empresa.id}" />
+					<p:outputLabel value="Cod." for="cod" />
+					<h:outputText id="cod" value="#{cadastroEmpresaBean.empresa.id}" />
 
-				<p:outputLabel value="Razão Social" for="razao_social" />
-				<p:inputText id="razao_social" size="60" maxlength="80"
-					required="true" value="#{cadastroEmpresaBean.empresa.razaoSocial}" style="text-transform: uppercase" />
+					<p:outputLabel value="Razão Social" for="razao_social" />
+					<p:inputText id="razao_social" size="60" maxlength="80"
+						required="true" value="#{cadastroEmpresaBean.empresa.razaoSocial}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Fantasia" for="fantasia" />
-				<p:inputText id="fantasia" size="60" maxlength="80" required="true"
-					value="#{cadastroEmpresaBean.empresa.fantasia}" style="text-transform: uppercase" />
+					<p:outputLabel value="Fantasia" for="fantasia" />
+					<p:inputText id="fantasia" size="60" maxlength="80" required="true"
+						value="#{cadastroEmpresaBean.empresa.fantasia}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Responsavel" for="responsavel" />
-				<p:inputText id="responsavel" size="60" maxlength="80"
-					value="#{cadastroEmpresaBean.empresa.responsavel}" style="text-transform: uppercase" />
+					<p:outputLabel value="Responsavel" for="responsavel" />
+					<p:inputText id="responsavel" size="60" maxlength="80"
+						value="#{cadastroEmpresaBean.empresa.responsavel}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="CNPJ" for="cnpj" />
-				<p:inputMask id="cnpj" required="true"
-					value="#{cadastroEmpresaBean.empresa.cnpj}"
-					mask="99.999.999/9999-99" />
+					<p:outputLabel value="CNPJ" for="cnpj" />
+					<p:inputMask id="cnpj" required="true"
+						value="#{cadastroEmpresaBean.empresa.cnpj}"
+						mask="99.999.999/9999-99" />
 
-				<p:outputLabel value="CPF" for="cpf" />
-				<p:inputMask id="cpf" value="#{cadastroEmpresaBean.empresa.cpf}"
-					mask="999.999.999-99" />
+					<p:outputLabel value="CPF" for="cpf" />
+					<p:inputMask id="cpf" value="#{cadastroEmpresaBean.empresa.cpf}"
+						mask="999.999.999-99" />
 
-				<p:outputLabel value="Inscrição estadual" for="inscricao_estadual" />
-				<p:inputText id="inscricao_estadual" size="20" maxlength="20"
-					value="#{cadastroEmpresaBean.empresa.inscricaoEstadual}" />
+					<p:outputLabel value="Inscrição estadual" for="inscricao_estadual" />
+					<p:inputText id="inscricao_estadual" size="20" maxlength="20"
+						value="#{cadastroEmpresaBean.empresa.inscricaoEstadual}" />
 
-				<p:outputLabel value="Telefone fixo" for="telefone_1" />
-				<p:inputMask id="telefone_1"
-					value="#{cadastroEmpresaBean.empresa.telefoneFixo}"
-					mask="(99) 9999-9999" />
+					<p:outputLabel value="Telefone fixo" for="telefone_1" />
+					<p:inputMask id="telefone_1"
+						value="#{cadastroEmpresaBean.empresa.telefoneFixo}"
+						mask="(99) 9999-9999" />
 
-				<p:outputLabel value="Telefone movel" for="telefone_2" />
-				<p:inputMask id="telefone_2"
-					value="#{cadastroEmpresaBean.empresa.telefoneMovel}"
-					mask="(99) 99999-9999" />
+					<p:outputLabel value="Telefone movel" for="telefone_2" />
+					<p:inputMask id="telefone_2"
+						value="#{cadastroEmpresaBean.empresa.telefoneMovel}"
+						mask="(99) 99999-9999" />
 
-				<p:outputLabel value="E-mail" for="email" />
-				<p:inputText id="email" size="60" maxlength="80"
-					value="#{cadastroEmpresaBean.empresa.email}" style="text-transform: lowercase" />
+					<p:outputLabel value="E-mail" for="email" />
+					<p:inputText id="email" size="60" maxlength="80"
+						value="#{cadastroEmpresaBean.empresa.email}"
+						style="text-transform: lowercase" />
 
-				<p:outputLabel value="Endereço" for="endereco" />
-				<p:inputText id="endereco" size="60" maxlength="80"
-					value="#{cadastroEmpresaBean.empresa.endereco}" style="text-transform: uppercase" />
+					<p:outputLabel value="Endereço" for="endereco" />
+					<p:inputText id="endereco" size="60" maxlength="80"
+						value="#{cadastroEmpresaBean.empresa.endereco}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Nº" for="endereco_numero" />
-				<p:inputText id="endereco_numero" size="10" maxlength="10"
-					value="#{cadastroEmpresaBean.empresa.enderecoNumero}" style="text-transform: uppercase" />
+					<p:outputLabel value="Nº" for="endereco_numero" />
+					<p:inputText id="endereco_numero" size="10" maxlength="10"
+						value="#{cadastroEmpresaBean.empresa.enderecoNumero}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Bairro" for="bairro" />
-				<p:inputText id="bairro" size="50" maxlength="50"
-					value="#{cadastroEmpresaBean.empresa.bairro}" style="text-transform: uppercase" />
+					<p:outputLabel value="Bairro" for="bairro" />
+					<p:inputText id="bairro" size="50" maxlength="50"
+						value="#{cadastroEmpresaBean.empresa.bairro}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Cidade" for="cidade" />
-				<p:inputText id="cidade" size="60" maxlength="60"
-					value="#{cadastroEmpresaBean.empresa.cidade}" style="text-transform: uppercase" />
+					<p:outputLabel value="Cidade" for="cidade" />
+					<p:inputText id="cidade" size="60" maxlength="60"
+						value="#{cadastroEmpresaBean.empresa.cidade}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="UF" for="uf" />
-				<p:inputText id="uf" size="10" maxlength="10"
-					value="#{cadastroEmpresaBean.empresa.estado}" style="text-transform: uppercase" />
+					<p:outputLabel value="UF" for="uf" />
+					<p:inputText id="uf" size="10" maxlength="10"
+						value="#{cadastroEmpresaBean.empresa.estado}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="CEP" for="cep" />
-				<p:inputMask id="cep" value="#{cadastroEmpresaBean.empresa.cep}"
-					mask="99.999-999" />
+					<p:outputLabel value="CEP" for="cep" />
+					<p:inputMask id="cep" value="#{cadastroEmpresaBean.empresa.cep}"
+						mask="99.999-999" />
 
-				<p:outputLabel value="Data contrato" for="dtcontrato" />
-				<h:panelGroup>
-					<p:calendar id="dtcontrato" size="10" pattern="dd/MM/yyyy"
-						value="#{cadastroEmpresaBean.empresa.dataContrato}" mask="99/99/9999" />
-				</h:panelGroup>
-				
-				<p:outputLabel value="Data fim contrato" for="dtfimcontrato" />
-				<h:panelGroup>
-					<p:calendar id="dtfimcontrato" size="10" pattern="dd/MM/yyyy"
-						value="#{cadastroEmpresaBean.empresa.dataFimContrato}" mask="99/99/9999" />
-				</h:panelGroup>
-				
-				<p:outputLabel value="Data cadastro" for="dtcadastro" />
-				<h:outputText id="dtcadastro" value="#{cadastroEmpresaBean.empresa.dataCadastro}">
-					<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
-				</h:outputText>				
+					<p:outputLabel value="Data contrato" for="dtcontrato" />
+					<h:panelGroup>
+						<p:calendar id="dtcontrato" size="10" pattern="dd/MM/yyyy"
+							value="#{cadastroEmpresaBean.empresa.dataContrato}"
+							mask="99/99/9999" />
+					</h:panelGroup>
 
-			</p:panelGrid>
+					<p:outputLabel value="Data fim contrato" for="dtfimcontrato" />
+					<h:panelGroup>
+						<p:calendar id="dtfimcontrato" size="10" pattern="dd/MM/yyyy"
+							value="#{cadastroEmpresaBean.empresa.dataFimContrato}"
+							mask="99/99/9999" />
+					</h:panelGroup>
+
+					<p:outputLabel value="Data cadastro" for="dtcadastro" />
+					<h:outputText id="dtcadastro"
+						value="#{cadastroEmpresaBean.empresa.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+					</h:outputText>
+
+				</p:panelGrid>
+			</div>
+
 		</h:form>
 	</ui:define>
 </ui:composition>

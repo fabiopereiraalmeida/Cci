@@ -44,6 +44,8 @@ public class RelatorioNegarivadasTodasBean implements Serializable {
 		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/relatorio_todas_negativadas.jasper",
 				this.response, parametros, "TodasNegativadas.pdf");
 		
+		
+		
 		Session session = manager.unwrap(Session.class);
 		session.doWork(executor);
 		

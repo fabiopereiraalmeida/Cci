@@ -17,91 +17,75 @@
 		<h:form id="frm">
 			<p:focus context="frm" />
 
-			<h1>#{cadastroNegativadaBean.editando ? 'Edição de negativada' :
-				'Nova negativada'}</h1>
+			<div align="center">
+				<h1>#{cadastroNegativadaBean.editando ? 'Edição de negativada'
+					: 'Nova negativada'}</h1>
+			</div>
 
 			<p:messages autoUpdate="true" closable="true" />
 
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:button value="Novo" outcome="/negativadas/CadastroNegativada" />
-					<p:commandButton value="Salvar" id="botaoSalvar"
-						action="#{cadastroNegativadaBean.salvar}" update="@form"
-						validateClient="false" />
-				</p:toolbarGroup>
-				<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" title="Pesquisar"
-						outcome="/negativadas/PesquisaNegativada" />
-				</p:toolbarGroup>
-			</p:toolbar>
+			<div align="center">
+				<p:toolbar style="margin-top: 20px; width: 80%">
+					<p:toolbarGroup>
+						<p:button value="Novo" outcome="/negativadas/CadastroNegativada" />
+						<p:commandButton value="Salvar" id="botaoSalvar"
+							action="#{cadastroNegativadaBean.salvar}" update="@form"
+							validateClient="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button value="Pesquisa" title="Pesquisar"
+							outcome="/negativadas/PesquisaNegativada" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
 
-			<p:panelGrid columns="2" id="painel"
-				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
-				
-				<p:outputLabel value="Empresa" for="empresa" />
-				<h:outputText id="empresa" value="#{seguranca.usuarioLogado.usuario.empresa.fantasia}" style="text-transform: uppercase"/>
+			<div align="center">
+				<p:panelGrid columns="2" id="painel"
+					style="width: 80%; margin-top: 20px" columnClasses="rotulo, campo">
 
-				<p:outputLabel value="Usuario" for="usuario" />
-				<h:outputText id="usuario" value="#{seguranca.usuarioLogado.usuario.nome}" style="text-transform: uppercase"/>
+					<p:outputLabel value="Empresa" for="empresa" />
+					<h:outputText id="empresa"
+						value="#{seguranca.usuarioLogado.usuario.empresa.fantasia}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Pessoa" for="pessoa" />
-				<h:panelGroup>
-					<p:inputText id="pessoa" size="40"
-						value="#{cadastroNegativadaBean.nomePessoa}"
-						readonly="#{facesContext.currentPhaseId.name eq 'RENDER_RESPONSE'}" required="true"/>
+					<p:outputLabel value="Usuario" for="usuario" />
+					<h:outputText id="usuario"
+						value="#{seguranca.usuarioLogado.usuario.nome}"
+						style="text-transform: uppercase" />
 
-					<p:commandButton icon="ui-icon-search" title="Pesquisar"
-						process="@this" update="@none"
-						action="#{selecaoPessoaBean.abrirDialogo}" ignoreAutoUpdate="true" >
-						<p:ajax event="dialogReturn"
-							listener="#{cadastroNegativadaBean.pessoaSelecionada}"
-							update="pessoa" ignoreAutoUpdate="true" />
-					</p:commandButton>
-				</h:panelGroup>
+					<p:outputLabel value="Pessoa" for="pessoa" />
+					<h:panelGroup>
+						<p:inputText id="pessoa" size="40"
+							value="#{cadastroNegativadaBean.nomePessoa}"
+							readonly="#{facesContext.currentPhaseId.name eq 'RENDER_RESPONSE'}"
+							required="true" />
 
-				<p:outputLabel value="Valor" for="valor" />
-				<p:inputText id="valor" size="10" maxlength="10" styleClass="moeda"
-					value="#{cadastroNegativadaBean.negativada.valor}" required="true">
-					<f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
-				</p:inputText>
+						<p:commandButton icon="ui-icon-search" title="Pesquisar"
+							process="@this" update="@none"
+							action="#{selecaoPessoaBean.abrirDialogo}"
+							ignoreAutoUpdate="true">
+							<p:ajax event="dialogReturn"
+								listener="#{cadastroNegativadaBean.pessoaSelecionada}"
+								update="pessoa" ignoreAutoUpdate="true" />
+						</p:commandButton>
+					</h:panelGroup>
 
-				<p:outputLabel value="Data divida" for="data_divida" />
-				<h:panelGroup>
-					<p:calendar id="data_divida" size="10" pattern="dd/MM/yyyy"
-						value="#{cadastroNegativadaBean.negativada.dataDivida}"
-						mask="99/99/9999" required="true" />
-				</h:panelGroup>
-		
-			</p:panelGrid>
+					<p:outputLabel value="Valor" for="valor" />
+					<p:inputText id="valor" size="10" maxlength="10" styleClass="moeda"
+						value="#{cadastroNegativadaBean.negativada.valor}" required="true">
+						<f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
+					</p:inputText>
+
+					<p:outputLabel value="Data divida" for="data_divida" />
+					<h:panelGroup>
+						<p:calendar id="data_divida" size="10" pattern="dd/MM/yyyy"
+							value="#{cadastroNegativadaBean.negativada.dataDivida}"
+							mask="99/99/9999" required="true" />
+					</h:panelGroup>
+
+				</p:panelGrid>
+			</div>
+
 		</h:form>
 	</ui:define>
 </ui:composition>
-
-<!-- 
-					<p:panelGrid columns="2" id="painel_1"
-						style="width: 100%; margin-top: 20px"
-						columnClasses="rotulo, campo">
-
-						<p:outputLabel value="Cod" for="cod" />
-						<p:inputText id="cod" size="20" maxlength="20" />
-
-						<p:outputLabel value="Negativada Id" for="negativada_id" />
-						<p:inputText id="negativada_id" size="60" maxlength="80"/>
-
-						<p:outputLabel value="Empresa Id" for="empresa_id" />
-						<p:inputText id="empresa_id" size="30" maxlength="30" />
-
-						<p:outputLabel value="Valor" for="valor" />
-						<p:inputText id="valor" size="30" maxlength="30" required="true" styleClass="moeda"/>
-
-						<p:outputLabel value="Data divida" for="data_divida" />
-						<p:inputText id="data_divida" size="30" maxlength="30" required="true"/>
-
-						<p:outputLabel value="Data baixa" for="data_baixa" />
-						<p:inputText id="data_baixa" size="20" maxlength="20" />
-
-						<p:outputLabel value="Ativo" for="ativo" />
-						<p:inputText id="ativo" size="30" maxlength="30" />
-
-					</p:panelGrid>
-				 -->

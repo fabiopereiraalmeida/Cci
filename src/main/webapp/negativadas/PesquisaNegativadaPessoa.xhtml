@@ -5,11 +5,14 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
-	<ui:define name="titulo">#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo pessoa'}</ui:define>
+	<div align="center">
+		<ui:define name="titulo">#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo pessoa'}</ui:define>
+	</div>
 
 	<ui:define name="corpo">
 		<f:metadata>
-			<o:viewParam name="pessoa" value="#{pesquisaNegativadasBean.filtro.pessoa}" />
+			<o:viewParam name="pessoa"
+				value="#{pesquisaNegativadasBean.filtro.pessoa}" />
 			<f:viewAction action="#{pesquisaNegativadasBean.pesquisarSemEmpresa}" />
 		</f:metadata>
 
@@ -18,34 +21,38 @@
 
 			<p:messages autoUpdate="true" closable="true" />
 
-			<p:dataTable id="negativadasTable"
-				value="#{pesquisaNegativadasBean.negativadasFiltrados}"
-				var="negativada" style="margin-top: 20px"
-				emptyMessage="Nenhuma negativada encontrada." rows="20"
-				paginator="true" paginatorAlwaysVisible="false"
-				paginatorPosition="bottom">
-				
-				<p:column headerText="Empresa"
-					style="text-align: center; width: 250px">
-					<h:outputText value="#{negativada.empresa.fantasia}" style="text-transform: uppercase"/>
-				</p:column>
-				
-				<p:column headerText="Pessoa">
-					<h:outputText value="#{negativada.pessoa.nome}" style="text-transform: uppercase"/>
-				</p:column>
-				
-				<p:column headerText="Valor" style="width: 250px">
-					<h:outputText value="#{negativada.valor}"/>
-				</p:column>
-				
-				<p:column headerText="Data divida" style="width: 250px">
-					<h:outputText value="#{negativada.dataDivida}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</p:column>
-				
-			</p:dataTable>
-			
+			<div align="center">
+				<p:dataTable id="negativadasTable"
+					value="#{pesquisaNegativadasBean.negativadasFiltrados}"
+					var="negativada" style="margin-top: 20px; width: 80%"
+					emptyMessage="Nenhuma negativada encontrada." rows="20"
+					paginator="true" paginatorAlwaysVisible="false"
+					paginatorPosition="bottom">
+
+					<p:column headerText="Empresa"
+						style="text-align: center; width: 250px">
+						<h:outputText value="#{negativada.empresa.fantasia}"
+							style="text-transform: uppercase" />
+					</p:column>
+
+					<p:column headerText="Pessoa">
+						<h:outputText value="#{negativada.pessoa.nome}"
+							style="text-transform: uppercase" />
+					</p:column>
+
+					<p:column headerText="Valor" style="width: 250px">
+						<h:outputText value="#{negativada.valor}" />
+					</p:column>
+
+					<p:column headerText="Data divida" style="width: 250px">
+						<h:outputText value="#{negativada.dataDivida}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
 		</h:form>
 	</ui:define>
 

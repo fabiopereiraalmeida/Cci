@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2016-06-18T16:25:26 -->
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-05-24T23:35:24 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comunicado" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3f0fe8f-1ee8-4060-812a-87e276619e75">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CCI"/>
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<parameter name="NOME_EMPRESA" class="java.lang.String"/>
-	<parameter name="NOME_PESSOA" class="java.lang.String"/>
-	<parameter name="ENDERECO" class="java.lang.String"/>
-	<parameter name="CIDADE" class="java.lang.String"/>
-	<parameter name="CEP" class="java.lang.String"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -42,31 +36,6 @@
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="59" y="0" width="480" height="20" uuid="650c367e-f892-405a-882c-bcf13673f7c5"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="68" y="30" width="470" height="20" uuid="4a4164de-044a-4e89-b7f9-4261d7c9ab66"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{NOME_PESSOA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="33" y="50" width="500" height="20" uuid="7080bfe5-1d30-4a50-b9c7-d75a38c64443"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{ENDERECO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="43" y="70" width="240" height="20" uuid="465580bf-424e-44a3-8b99-5cedbeddfbc2"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{CIDADE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="319" y="70" width="130" height="20" uuid="a33cd909-170e-428c-960a-e80d64d94921"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{CEP}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -136,7 +105,7 @@
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão tomadas. Para qualquer informação, gentileza entrar em contato com a CCI – Base Nacional de Proteção ao Crédito e Cobranças pelo fone (77)9 8118-0515, (77)9 8822-3010, (77)9 9134-6532, (77)9 9949-1481 ou no endereço Rua Zeferino carinhanha, 232 – Centro – Caculé – BA.]]></text>
+				<text><![CDATA[Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão Para qualquer informação, gentileza entrar em contato com a CCI – Base Nacional de Proteção ao Crédito e Cobranças pelo fone (77)9 8118-0515, (77)9 8822-3010, (77)9 9134-6532, (77)9 9949-1481 ou no endereço Rua Zeferino carinhanha, 232 – Centro – Caculé – BA.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="335" width="550" height="20" uuid="434b3238-bbb2-4627-bccd-f69184e9da2a"/>
@@ -163,20 +132,6 @@
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="59" y="70" width="493" height="20" uuid="5c81c44a-e4e1-4c7d-8b6e-d27fe52cd210"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="97" y="10" width="455" height="20" uuid="39c783bc-c3dd-4d55-9d86-c2e519c50dfd"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{NOME_PESSOA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

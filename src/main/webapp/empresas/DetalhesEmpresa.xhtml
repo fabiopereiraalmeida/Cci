@@ -16,104 +16,112 @@
 		<h:form id="frm">
 			<p:focus context="frm" />
 
-			<h1>#{cadastroEmpresaBean.editando ? 'Edição de empresa' : 'Novo
-				empresa'}</h1>
+			<div align="center">
+				<h1>#{cadastroEmpresaBean.editando ? 'Edição de empresa' :
+					'Novo empresa'}</h1>
+			</div>
 
 			<p:messages autoUpdate="true" closable="true" />
 
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:button value="Novo" outcome="/empresas/CadastroEmpresa" />
-					<p:commandButton value="Salvar" id="botaoSalvar"
-						action="#{cadastroEmpresaBean.salvar}" update="@form"
-						validateClient="false" />
-				</p:toolbarGroup>
-				<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" title="Pesquisar"
-						outcome="/empresas/PesquisaEmpresa" />
-				</p:toolbarGroup>
-			</p:toolbar>
+			<div align="center">
+				<p:toolbar style="margin-top: 20px; width: 80%">
+					<p:toolbarGroup>
+						<p:button value="Novo" outcome="/empresas/CadastroEmpresa" />
+						<p:commandButton value="Salvar" id="botaoSalvar"
+							action="#{cadastroEmpresaBean.salvar}" update="@form"
+							validateClient="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button value="Pesquisa" title="Pesquisar"
+							outcome="/empresas/PesquisaEmpresa" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
 
-			<p:panelGrid columns="2" id="painel"
-				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+			<div align="center">
+				<p:panelGrid columns="2" id="painel"
+					style="width: 80%; margin-top: 20px" columnClasses="rotulo, campo">
 
-				<p:outputLabel value="Cod." for="cod" />
-				<h:outputText id="cod" value="#{cadastroEmpresaBean.empresa.id}" />
+					<p:outputLabel value="Cod." for="cod" />
+					<h:outputText id="cod" value="#{cadastroEmpresaBean.empresa.id}" />
 
-				<p:outputLabel value="Razão Social" for="razao_social" />
-				<h:outputText id="razao_social"
-					value="#{cadastroEmpresaBean.empresa.razaoSocial}" />
+					<p:outputLabel value="Razão Social" for="razao_social" />
+					<h:outputText id="razao_social"
+						value="#{cadastroEmpresaBean.empresa.razaoSocial}" />
 
-				<p:outputLabel value="Fantasia" for="fantasia" />
-				<h:outputText id="fantasia"
-					value="#{cadastroEmpresaBean.empresa.fantasia}" />
+					<p:outputLabel value="Fantasia" for="fantasia" />
+					<h:outputText id="fantasia"
+						value="#{cadastroEmpresaBean.empresa.fantasia}" />
 
-				<p:outputLabel value="Responsavel" for="responsavel" />
-				<h:outputText id="responsavel"
-					value="#{cadastroEmpresaBean.empresa.responsavel}" />
+					<p:outputLabel value="Responsavel" for="responsavel" />
+					<h:outputText id="responsavel"
+						value="#{cadastroEmpresaBean.empresa.responsavel}" />
 
-				<p:outputLabel value="CNPJ" for="cnpj" />
-				<h:outputText id="cnpj" value="#{cadastroEmpresaBean.empresa.cnpj}" />
+					<p:outputLabel value="CNPJ" for="cnpj" />
+					<h:outputText id="cnpj" value="#{cadastroEmpresaBean.empresa.cnpj}" />
 
-				<p:outputLabel value="CPF" for="cpf" />
-				<h:outputText id="cpf" value="#{cadastroEmpresaBean.empresa.cpf}" />
+					<p:outputLabel value="CPF" for="cpf" />
+					<h:outputText id="cpf" value="#{cadastroEmpresaBean.empresa.cpf}" />
 
-				<p:outputLabel value="Inscrição estadual" for="inscricao_estadual" />
-				<h:outputText id="inscricao_estadual"
-					value="#{cadastroEmpresaBean.empresa.inscricaoEstadual}" />
+					<p:outputLabel value="Inscrição estadual" for="inscricao_estadual" />
+					<h:outputText id="inscricao_estadual"
+						value="#{cadastroEmpresaBean.empresa.inscricaoEstadual}" />
 
-				<p:outputLabel value="Telefone fixo" for="telefone_1" />
-				<h:outputText id="telefone_1"
-					value="#{cadastroEmpresaBean.empresa.telefoneFixo}" />
+					<p:outputLabel value="Telefone fixo" for="telefone_1" />
+					<h:outputText id="telefone_1"
+						value="#{cadastroEmpresaBean.empresa.telefoneFixo}" />
 
-				<p:outputLabel value="Telefone movel" for="telefone_2" />
-				<h:outputText id="telefone_2"
-					value="#{cadastroEmpresaBean.empresa.telefoneMovel}" />
+					<p:outputLabel value="Telefone movel" for="telefone_2" />
+					<h:outputText id="telefone_2"
+						value="#{cadastroEmpresaBean.empresa.telefoneMovel}" />
 
-				<p:outputLabel value="E-mail" for="email" />
-				<h:outputText id="email"
-					value="#{cadastroEmpresaBean.empresa.email}" />
+					<p:outputLabel value="E-mail" for="email" />
+					<h:outputText id="email"
+						value="#{cadastroEmpresaBean.empresa.email}" />
 
-				<p:outputLabel value="Endereço" for="endereco" />
-				<h:outputText id="endereco"
-					value="#{cadastroEmpresaBean.empresa.endereco}" />
+					<p:outputLabel value="Endereço" for="endereco" />
+					<h:outputText id="endereco"
+						value="#{cadastroEmpresaBean.empresa.endereco}" />
 
-				<p:outputLabel value="Nº" for="endereco_numero" />
-				<h:outputText id="endereco_numero"
-					value="#{cadastroEmpresaBean.empresa.enderecoNumero}" />
+					<p:outputLabel value="Nº" for="endereco_numero" />
+					<h:outputText id="endereco_numero"
+						value="#{cadastroEmpresaBean.empresa.enderecoNumero}" />
 
-				<p:outputLabel value="Bairro" for="bairro" />
-				<h:outputText id="bairro" value="#{cadastroEmpresaBean.empresa.bairro}" />
+					<p:outputLabel value="Bairro" for="bairro" />
+					<h:outputText id="bairro"
+						value="#{cadastroEmpresaBean.empresa.bairro}" />
 
-				<p:outputLabel value="Cidade" for="cidade" />
-				<h:outputText id="cidade"
-					value="#{cadastroEmpresaBean.empresa.cidade}" />
+					<p:outputLabel value="Cidade" for="cidade" />
+					<h:outputText id="cidade"
+						value="#{cadastroEmpresaBean.empresa.cidade}" />
 
-				<p:outputLabel value="UF" for="uf" />
-				<h:outputText id="uf" value="#{cadastroEmpresaBean.empresa.estado}" />
+					<p:outputLabel value="UF" for="uf" />
+					<h:outputText id="uf" value="#{cadastroEmpresaBean.empresa.estado}" />
 
-				<p:outputLabel value="CEP" for="cep" />
-				<h:outputText id="cep" value="#{cadastroEmpresaBean.empresa.cep}" />
+					<p:outputLabel value="CEP" for="cep" />
+					<h:outputText id="cep" value="#{cadastroEmpresaBean.empresa.cep}" />
 
-				<p:outputLabel value="Data contrato" for="dtcontrato" />
-				<h:outputText id="dtcontrato"
-					value="#{cadastroEmpresaBean.empresa.dataCadastro}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
+					<p:outputLabel value="Data contrato" for="dtcontrato" />
+					<h:outputText id="dtcontrato"
+						value="#{cadastroEmpresaBean.empresa.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 
-				<p:outputLabel value="Data fim contrato" for="dtfimcontrato" />
-				<h:outputText id="dtfimcontrato"
-					value="#{cadastroEmpresaBean.empresa.dataFimContrato}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
+					<p:outputLabel value="Data fim contrato" for="dtfimcontrato" />
+					<h:outputText id="dtfimcontrato"
+						value="#{cadastroEmpresaBean.empresa.dataFimContrato}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 
-				<p:outputLabel value="Data cadastro" for="dtcadastro" />
-				<h:outputText id="dtcadastro"
-					value="#{cadastroEmpresaBean.empresa.dataCadastro}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
+					<p:outputLabel value="Data cadastro" for="dtcadastro" />
+					<h:outputText id="dtcadastro"
+						value="#{cadastroEmpresaBean.empresa.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 
-			</p:panelGrid>
+				</p:panelGrid>
+			</div>
+
 		</h:form>
 	</ui:define>
 </ui:composition>

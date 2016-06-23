@@ -14,18 +14,24 @@
 		</f:metadata>
 
 		<h:form id="frmPesquisa">
-			<h1>Pesquisa de negativadas</h1>
+
+			<div align="center">
+				<h1>Pesquisa de negativadas</h1>
+			</div>
 
 			<p:messages autoUpdate="true" closable="true" />
- 
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:commandButton value="Pesquisar"
-						action="#{pesquisaNegativadasBean.pesquisarBaixados}"
-						update="@form" />
-				</p:toolbarGroup>
-			</p:toolbar>
-<!-- 
+
+			<div align="center">
+				<p:toolbar style="margin-top: 20px; width: 80%">
+					<p:toolbarGroup>
+						<p:commandButton value="Pesquisar"
+							action="#{pesquisaNegativadasBean.pesquisarBaixados}"
+							update="@form" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
+
+			<!-- 
 			<p:panelGrid columns="2" id="painel"
 				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
 				<p:outputLabel value="Empresa" for="empresa" />
@@ -33,60 +39,63 @@
 					value="#{seguranca.usuarioLogado.usuario.empresa.fantasia}" />
 			</p:panelGrid>
 -->
-			<p:dataTable id="negativadasTable"
-				value="#{pesquisaNegativadasBean.negativadasFiltrados}"
-				var="negativada" style="margin-top: 20px"
-				emptyMessage="Nenhuma negativada encontrada." rows="20"
-				paginator="true" paginatorAlwaysVisible="false"
-				paginatorPosition="bottom">
 
-				<p:column headerText="Empresa"
-					style="text-align: center; width: 250px">
-					<h:outputText value="#{negativada.empresa.fantasia}"
-						style="text-transform: uppercase" />
-				</p:column>
+			<div align="center">
+				<p:dataTable id="negativadasTable"
+					value="#{pesquisaNegativadasBean.negativadasFiltrados}"
+					var="negativada" style="margin-top: 20px; width: 80%"
+					emptyMessage="Nenhuma negativada encontrada." rows="20"
+					paginator="true" paginatorAlwaysVisible="false"
+					paginatorPosition="bottom">
 
-				<p:column headerText="Pessoa">
-					<h:outputText value="#{negativada.pessoa.nome}"
-						style="text-transform: uppercase" />
-				</p:column>
+					<p:column headerText="Empresa"
+						style="text-align: center; width: 250px">
+						<h:outputText value="#{negativada.empresa.fantasia}"
+							style="text-transform: uppercase" />
+					</p:column>
 
-				<p:column headerText="Valor" style="width: 250px">
-					<h:outputText value="#{negativada.valor}" />
-				</p:column>
+					<p:column headerText="Pessoa">
+						<h:outputText value="#{negativada.pessoa.nome}"
+							style="text-transform: uppercase" />
+					</p:column>
 
-				<p:column headerText="Data divida" style="width: 250px">
-					<h:outputText value="#{negativada.dataDivida}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</p:column>
-				
-				<p:column headerText="Data baixa" style="width: 250px">
-					<h:outputText value="#{negativada.baixa}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</p:column>
-				
-				<p:column style="width: 100px; text-align: center">
+					<p:column headerText="Valor" style="width: 250px">
+						<h:outputText value="#{negativada.valor}" />
+					</p:column>
 
-					<p:commandButton icon="ui-icon-circle-check"
-						title="Baixar negativada"
-						oncomplete="PF('confirmacaoBaixa').show()" process="@this"
-						update=":frmPesquisa:confirmacaoBaixaDialog">
-						<f:setPropertyActionListener
-							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
-							value="#{negativada}" />
-					</p:commandButton>
+					<p:column headerText="Data divida" style="width: 250px">
+						<h:outputText value="#{negativada.dataDivida}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
 
-					<p:commandButton icon="ui-icon-trash" title="Excluir"
-						oncomplete="PF('confirmacaoExclusao').show()" process="@this"
-						update=":frmPesquisa:confirmacaoExclusaoDialog">
-						<f:setPropertyActionListener
-							target="#{pesquisaNegativadasBean.negativadaSelecionado}"
-							value="#{negativada}" />
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
+					<p:column headerText="Data baixa" style="width: 250px">
+						<h:outputText value="#{negativada.baixa}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+					<p:column style="width: 100px; text-align: center">
+
+						<p:commandButton icon="ui-icon-circle-check"
+							title="Baixar negativada"
+							oncomplete="PF('confirmacaoBaixa').show()" process="@this"
+							update=":frmPesquisa:confirmacaoBaixaDialog">
+							<f:setPropertyActionListener
+								target="#{pesquisaNegativadasBean.negativadaSelecionado}"
+								value="#{negativada}" />
+						</p:commandButton>
+
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							oncomplete="PF('confirmacaoExclusao').show()" process="@this"
+							update=":frmPesquisa:confirmacaoExclusaoDialog">
+							<f:setPropertyActionListener
+								target="#{pesquisaNegativadasBean.negativadaSelecionado}"
+								value="#{negativada}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</div>
 
 			<p:confirmDialog header="Baixa da negativada"
 				message="Tem certeza que deseja dar baixa permanete na negativada de #{pesquisaNegativadasBean.negativadaSelecionado.pessoa.nome}, no valor de R$#{pesquisaNegativadasBean.negativadaSelecionado.valor}?"

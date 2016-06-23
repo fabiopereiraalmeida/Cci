@@ -1,7 +1,6 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.Session;
 
@@ -25,9 +23,6 @@ public class RelatorioNegarivadasEmpresaBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	//private Date dataInicio;
-	//private Date dataFim;
-
 	@Inject
 	private FacesContext facesContext;
 
@@ -40,13 +35,13 @@ public class RelatorioNegarivadasEmpresaBean implements Serializable {
 	private Seguranca seguranca = new Seguranca();
 
 	public void emitir() {
+		
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("ID_EMPRESA", seguranca.getUsuarioLogado().getUsuario().getEmpresa().getId());
-		//parametros.put("data_fim", this.dataFim);
-		
+				
 		ExecutorRelatorio executor = new ExecutorRelatorio("/relatorios/relatorio_negativadas_por_empresa.jasper",
 				this.response, parametros, "TodasNegativadasPelaEmpresa.pdf");
-		
+			
 		Session session = manager.unwrap(Session.class);
 		session.doWork(executor);
 		

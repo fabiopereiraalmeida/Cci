@@ -16,116 +16,133 @@
 		<h:form id="frm">
 			<p:focus context="frm" />
 
-			<h1>#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo
-				pessoa'}</h1>
+			<div align="center">
+				<h1>#{cadastroPessoaBean.editando ? 'Edição de pessoa' : 'Novo
+					pessoa'}</h1>
+			</div>
 
 			<p:messages autoUpdate="true" closable="true" />
 
-			<p:toolbar style="margin-top: 20px">
-				<p:toolbarGroup>
-					<p:button value="Novo" outcome="/pessoas/CadastroPessoa" />
-					<p:commandButton value="Salvar" id="botaoSalvar"
-						action="#{cadastroPessoaBean.salvar}" update="@form"
-						validateClient="false" />
-				</p:toolbarGroup>
-				<p:toolbarGroup align="right">
-					<p:button value="Pesquisa" title="Pesquisar"
-						outcome="/pessoas/PesquisaPessoa" />
-				</p:toolbarGroup>
-			</p:toolbar>
+			<div align="center">
+				<p:toolbar style="margin-top: 20px; width: 80%">
+					<p:toolbarGroup>
+						<p:button value="Novo" outcome="/pessoas/CadastroPessoa" />
+						<p:commandButton value="Salvar" id="botaoSalvar"
+							action="#{cadastroPessoaBean.salvar}" update="@form"
+							validateClient="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button value="Pesquisa" title="Pesquisar"
+							outcome="/pessoas/PesquisaPessoa" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
 
-			<p:panelGrid columns="2" id="painel"
-				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+			<div align="center">
+				<p:panelGrid columns="2" id="painel"
+					style="width: 80%; margin-top: 20px" columnClasses="rotulo, campo">
 
-				<p:outputLabel value="Cod" for="cod" />
-				<h:outputText id="cod" value="#{cadastroPessoaBean.pessoa.id}" />
+					<p:outputLabel value="Cod" for="cod" />
+					<h:outputText id="cod" value="#{cadastroPessoaBean.pessoa.id}" />
 
-				<p:outputLabel value="Nome" for="nome" />
-				<p:inputText id="nome" size="60" maxlength="80"
-					value="#{cadastroPessoaBean.pessoa.nome}" required="true" style="text-transform: uppercase"/>
+					<p:outputLabel value="Nome" for="nome" />
+					<p:inputText id="nome" size="60" maxlength="80"
+						value="#{cadastroPessoaBean.pessoa.nome}" required="true"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Apelido" for="apelido" />
-				<p:inputText id="apelido" size="50" maxlength="50"
-					value="#{cadastroPessoaBean.pessoa.apelido}" style="text-transform: uppercase"/>
+					<p:outputLabel value="Apelido" for="apelido" />
+					<p:inputText id="apelido" size="50" maxlength="50"
+						value="#{cadastroPessoaBean.pessoa.apelido}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Endereço" for="endereco" />
-				<p:inputText id="endereco" size="60" maxlength="60"
-					value="#{cadastroPessoaBean.pessoa.endereco}" required="true" style="text-transform: uppercase" />
+					<p:outputLabel value="Endereço" for="endereco" />
+					<p:inputText id="endereco" size="60" maxlength="60"
+						value="#{cadastroPessoaBean.pessoa.endereco}" required="true"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Numero" for="numero" />
-				<p:inputText id="numero" size="10" maxlength="10"
-					value="#{cadastroPessoaBean.pessoa.enderecoNumero}" style="text-transform: uppercase" />
+					<p:outputLabel value="Numero" for="numero" />
+					<p:inputText id="numero" size="10" maxlength="10"
+						value="#{cadastroPessoaBean.pessoa.enderecoNumero}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Bairro" for="bairro" />
-				<p:inputText id="bairro" size="40" maxlength="40"
-					value="#{cadastroPessoaBean.pessoa.bairro}" required="true" style="text-transform: uppercase" />
+					<p:outputLabel value="Bairro" for="bairro" />
+					<p:inputText id="bairro" size="40" maxlength="40"
+						value="#{cadastroPessoaBean.pessoa.bairro}" required="true"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Cidade" for="cidade" />
-				<p:inputText id="cidade" size="50" maxlength="50"
-					value="#{cadastroPessoaBean.pessoa.cidade}" required="true" style="text-transform: uppercase" />
+					<p:outputLabel value="Cidade" for="cidade" />
+					<p:inputText id="cidade" size="50" maxlength="50"
+						value="#{cadastroPessoaBean.pessoa.cidade}" required="true"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="UF" for="uf" />
-				<p:inputText id="uf" size="10" maxlength="10"
-					value="#{cadastroPessoaBean.pessoa.estado}" required="true" style="text-transform: uppercase" />
+					<p:outputLabel value="UF" for="uf" />
+					<p:inputText id="uf" size="10" maxlength="10"
+						value="#{cadastroPessoaBean.pessoa.estado}" required="true"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="CEP" for="cep" />
-				<p:inputMask id="cep" value="#{cadastroPessoaBean.pessoa.cep}"
-					mask="99.999-999" required="true"/>
+					<p:outputLabel value="CEP" for="cep" />
+					<p:inputMask id="cep" value="#{cadastroPessoaBean.pessoa.cep}"
+						mask="99.999-999" required="true" />
 
-				<p:outputLabel value="Telefone fixo" for="telFixo" />
-				<p:inputMask id="telFixo"
-					value="#{cadastroPessoaBean.pessoa.telefoneFixo}"
-					mask="(99) 9999-9999" />
+					<p:outputLabel value="Telefone fixo" for="telFixo" />
+					<p:inputMask id="telFixo"
+						value="#{cadastroPessoaBean.pessoa.telefoneFixo}"
+						mask="(99) 9999-9999" />
 
-				<p:outputLabel value="Telefone movel" for="telMovel" />
-				<p:inputMask id="telMovel"
-					value="#{cadastroPessoaBean.pessoa.telefoneMovel}"
-					mask="(99) 99999-9999" />
+					<p:outputLabel value="Telefone movel" for="telMovel" />
+					<p:inputMask id="telMovel"
+						value="#{cadastroPessoaBean.pessoa.telefoneMovel}"
+						mask="(99) 99999-9999" />
 
-				<p:outputLabel value="Nome da mãe" for="nomeMae" />
-				<p:inputText id="nomeMae" size="50" maxlength="50"
-					value="#{cadastroPessoaBean.pessoa.nomeMae}" style="text-transform: uppercase" />
+					<p:outputLabel value="Nome da mãe" for="nomeMae" />
+					<p:inputText id="nomeMae" size="50" maxlength="50"
+						value="#{cadastroPessoaBean.pessoa.nomeMae}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="Nome do pai" for="nomePai" />
-				<p:inputText id="nomePai" size="50" maxlength="50"
-					value="#{cadastroPessoaBean.pessoa.nomePai}" style="text-transform: uppercase" />
+					<p:outputLabel value="Nome do pai" for="nomePai" />
+					<p:inputText id="nomePai" size="50" maxlength="50"
+						value="#{cadastroPessoaBean.pessoa.nomePai}"
+						style="text-transform: uppercase" />
 
-				<p:outputLabel value="CPF" for="cpf" />
-				<p:inputMask id="cpf" value="#{cadastroPessoaBean.pessoa.cpf}"
-					mask="999.999.999-99"/>
-					
+					<p:outputLabel value="CPF" for="cpf" />
+					<p:inputMask id="cpf" value="#{cadastroPessoaBean.pessoa.cpf}"
+						mask="999.999.999-99" />
+
 					<p:outputLabel value="CNPJ" for="cnpj" />
-				<p:inputMask id="cnpj" value="#{cadastroPessoaBean.pessoa.cnpj}"
-					mask="99.999.999/9999-99"/>
+					<p:inputMask id="cnpj" value="#{cadastroPessoaBean.pessoa.cnpj}"
+						mask="99.999.999/9999-99" />
 
-				<p:outputLabel value="RG" for="rg" />
-				<p:inputMask id="rg" value="#{cadastroPessoaBean.pessoa.rg}"
-					mask="99.999.999?-99" />
+					<p:outputLabel value="RG" for="rg" />
+					<p:inputMask id="rg" value="#{cadastroPessoaBean.pessoa.rg}"
+						mask="99.999.999?-99" />
 
-				<p:outputLabel value="Data nascimento" for="dtNacimento" />
-				<h:panelGroup>
-					<p:calendar id="dtNacimento" size="10" pattern="dd/MM/yyyy"
-						value="#{cadastroPessoaBean.pessoa.dataNacimento}" mask="99/99/9999" />
-				</h:panelGroup>
+					<p:outputLabel value="Data nascimento" for="dtNacimento" />
+					<h:panelGroup>
+						<p:calendar id="dtNacimento" size="10" pattern="dd/MM/yyyy"
+							value="#{cadastroPessoaBean.pessoa.dataNacimento}"
+							mask="99/99/9999" />
+					</h:panelGroup>
 
-				<p:outputLabel value="Sexo" for="sexo" />
-				<p:selectOneMenu id="sexo" value="#{cadastroPessoaBean.pessoa.sexo}"
-					required="true">
-					<f:selectItem itemValue="true" itemLabel="Masculino" />
-					<f:selectItem itemValue="false" itemLabel="Feminino" />
-				</p:selectOneMenu>
+					<p:outputLabel value="Sexo" for="sexo" />
+					<p:selectOneMenu id="sexo"
+						value="#{cadastroPessoaBean.pessoa.sexo}" required="true">
+						<f:selectItem itemValue="true" itemLabel="Masculino" />
+						<f:selectItem itemValue="false" itemLabel="Feminino" />
+					</p:selectOneMenu>
 
-				<p:outputLabel value="E-mail" for="email" />
-				<p:inputText id="email" size="70" maxlength="70"
-					value="#{cadastroPessoaBean.pessoa.email}" style="text-transform: lowercase" />
+					<p:outputLabel value="E-mail" for="email" />
+					<p:inputText id="email" size="70" maxlength="70"
+						value="#{cadastroPessoaBean.pessoa.email}"
+						style="text-transform: lowercase" />
 
-				<p:outputLabel value="Data cadastro" for="dtcadastro" />
-				<h:outputText id="dtcadastro" value="#{cadastroPessoaBean.pessoa.dataCadastro}">
-					<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
-				</h:outputText>
+					<p:outputLabel value="Data cadastro" for="dtcadastro" />
+					<h:outputText id="dtcadastro"
+						value="#{cadastroPessoaBean.pessoa.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+					</h:outputText>
+				</p:panelGrid>
+			</div>
 
-
-			</p:panelGrid>
 		</h:form>
 	</ui:define>
 
