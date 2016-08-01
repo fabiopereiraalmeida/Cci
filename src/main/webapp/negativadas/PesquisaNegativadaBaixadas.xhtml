@@ -54,22 +54,23 @@
 							style="text-transform: uppercase" />
 					</p:column>
 
-					<p:column headerText="Pessoa">
+					<p:column headerText="Pessoa"
+						style="text-align: center; width: 250px">
 						<h:outputText value="#{negativada.pessoa.nome}"
 							style="text-transform: uppercase" />
 					</p:column>
 
-					<p:column headerText="Valor" style="width: 250px">
+					<p:column headerText="Valor" style="width: 90px">
 						<h:outputText value="#{negativada.valor}" />
 					</p:column>
 
-					<p:column headerText="Data divida" style="width: 250px">
+					<p:column headerText="Data divida" style="width: 100px">
 						<h:outputText value="#{negativada.dataDivida}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
 
-					<p:column headerText="Data baixa" style="width: 250px">
+					<p:column headerText="Data baixa" style="width: 100px">
 						<h:outputText value="#{negativada.baixa}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>

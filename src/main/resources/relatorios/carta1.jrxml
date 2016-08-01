@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2016-06-23T11:27:25 -->
+<!-- 2016-07-07T18:12:16 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoio_todas_pessoas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CCI"/>
@@ -116,88 +116,102 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 	<title>
 		<band height="195" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="20" width="80" height="30" uuid="8f6d2da8-7728-4d73-b9a2-2fe5794a1f52"/>
+				<reportElement x="0" y="10" width="80" height="30" uuid="8f6d2da8-7728-4d73-b9a2-2fe5794a1f52"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[EMPRESA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="60" width="100" height="30" uuid="f6bd9fcb-1575-4c1a-8c56-0af75b0ea36e"/>
+				<reportElement x="0" y="50" width="100" height="30" uuid="f6bd9fcb-1575-4c1a-8c56-0af75b0ea36e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[IImo (a) Sr. (A)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="100" width="50" height="30" uuid="248e826e-2032-4eb1-8416-41702fabf7b2"/>
+				<reportElement x="0" y="90" width="50" height="30" uuid="248e826e-2032-4eb1-8416-41702fabf7b2"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[End.:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="140" width="60" height="20" uuid="6af6d2f4-15e5-4119-999e-7581894a7673"/>
+				<reportElement x="290" y="130" width="60" height="20" uuid="6af6d2f4-15e5-4119-999e-7581894a7673"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="290" y="140" width="40" height="20" uuid="4a32f223-5054-4d0e-962f-ea1c1a05cf49"/>
+				<reportElement x="2" y="160" width="40" height="20" uuid="4a32f223-5054-4d0e-962f-ea1c1a05cf49"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[CEP:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="440" y="100" width="41" height="30" uuid="0650a647-495d-4615-bd70-0dd58abddae7"/>
+				<reportElement x="440" y="90" width="41" height="30" uuid="0650a647-495d-4615-bd70-0dd58abddae7"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[Nº:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="80" y="20" width="472" height="30" uuid="027ade9e-287e-41df-bd0c-91c9e252f6bb"/>
+				<reportElement x="80" y="10" width="472" height="30" uuid="027ade9e-287e-41df-bd0c-91c9e252f6bb"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="100" y="60" width="452" height="30" uuid="e6bfec66-0ef0-4e49-b393-5e6d5d34f697"/>
+				<reportElement x="100" y="50" width="452" height="30" uuid="e6bfec66-0ef0-4e49-b393-5e6d5d34f697"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="50" y="100" width="379" height="30" uuid="1fc7a5cc-4461-446f-933c-0cd05e353c1c"/>
+				<reportElement x="50" y="90" width="379" height="30" uuid="1fc7a5cc-4461-446f-933c-0cd05e353c1c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{endereco}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="481" y="100" width="71" height="30" uuid="6f7b7dfa-0ad3-4a20-8e00-1a6c85f8ab7e"/>
+				<reportElement x="481" y="90" width="71" height="30" uuid="6f7b7dfa-0ad3-4a20-8e00-1a6c85f8ab7e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{endereco_numero}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="60" y="140" width="220" height="20" uuid="0e23faf1-cfa4-4311-bb8e-815a1f8dcebe"/>
+				<reportElement x="350" y="130" width="202" height="20" uuid="0e23faf1-cfa4-4311-bb8e-815a1f8dcebe"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cidade}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="330" y="140" width="180" height="20" uuid="bca9b0d9-3a09-4aba-b429-7ab9623f641b"/>
+				<reportElement x="42" y="160" width="102" height="20" uuid="bca9b0d9-3a09-4aba-b429-7ab9623f641b"/>
 				<textElement verticalAlignment="Middle" markup="none">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="130" width="48" height="20" uuid="742a0936-d965-4867-a192-665eac906511"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="130" width="230" height="20" uuid="c5cd449a-2289-4f4c-aff7-f5660dbddb65"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairro}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -225,56 +239,56 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 				<text><![CDATA[Prezado (a) Sr.(a)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="119" width="555" height="30" uuid="c1900681-347e-4e62-8e5b-4ce443486c19"/>
+				<reportElement x="0" y="119" width="555" height="39" uuid="c1900681-347e-4e62-8e5b-4ce443486c19"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	Consta em nossos registros a pendência de pagamento dos valores relativos à compra realizada, sob sua responsabilidade, como segue:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="158" width="59" height="20" uuid="1951a6a7-7ea1-483c-a1bf-71a0df239a1e"/>
+				<reportElement x="0" y="165" width="59" height="20" uuid="1951a6a7-7ea1-483c-a1bf-71a0df239a1e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[Empresa:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="188" width="555" height="70" uuid="8728532b-da2b-40b9-a273-d939569579e5"/>
+				<reportElement x="0" y="195" width="555" height="70" uuid="8728532b-da2b-40b9-a273-d939569579e5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	A fim de evitarmos maiores problemas como cancelamento de crédito junto ao comércio e apontamento de seu nome junto aos órgãos nacionais de proteção ao crédito, solicitamos a V.S.a o comparecimento no respectivo comércio no PRAZO DE 10 DIAS  para a quitação do débito.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="264" width="555" height="37" uuid="6c9e1b18-92d9-4a13-9dcf-b0a097280cb9"/>
+				<reportElement x="0" y="271" width="555" height="37" uuid="6c9e1b18-92d9-4a13-9dcf-b0a097280cb9"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	Notificamos ainda que o referido débito será acrescido de juros e taxa de reabilitação de crédito.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="309" width="555" height="51" uuid="81df0dbc-8514-41f5-9961-993118240afe"/>
+				<reportElement x="0" y="316" width="555" height="51" uuid="81df0dbc-8514-41f5-9961-993118240afe"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão adotadas.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="368" width="555" height="124" uuid="f525874d-e658-4e16-be17-e5965ae42d6b"/>
+				<reportElement x="0" y="375" width="555" height="82" uuid="f525874d-e658-4e16-be17-e5965ae42d6b"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Findo o PRAZO ora oferecido, e não havendo qualquer manifestação de sua parte, no sentindo de regularizar a pendência mencionada,Informamos-lhe que outras providências legais serão tomadas. Para qualquer informação, gentileza entrar em contato com a CCI – Base Nacional de Proteção ao Crédito e Cobranças pelo fone (77)9 8118-0515, (77)9 8822-3010, (77)9 9134-6532, (77)9 9949-1481 ou no endereço Rua Zeferino carinhanha, 232 – Centro – Caculé – BA.]]></text>
+				<text><![CDATA[Para qualquer informação, gentileza entrar em contato com a CCI – Base Nacional de Proteção ao Crédito e Cobranças pelo fone (77)9 8118-0515, (77)9 8822-3010, (77)9 9134-6532, (77)9 9949-1481 ou no endereço Rua Zeferino carinhanha, 232 – Centro – Caculé – BA.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="508" width="556" height="20" uuid="a2056fe9-4f9b-4cab-befa-e32d6f1684eb"/>
+				<reportElement x="-1" y="488" width="556" height="20" uuid="a2056fe9-4f9b-4cab-befa-e32d6f1684eb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[No aguardo de seu pronto atendimento a presente, subscrevemo-nos.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="531" width="556" height="20" uuid="36cfa583-8725-4c61-a6e8-4942bd1bf0ca"/>
+				<reportElement x="-1" y="511" width="556" height="20" uuid="36cfa583-8725-4c61-a6e8-4942bd1bf0ca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isItalic="true"/>
 				</textElement>
@@ -308,7 +322,7 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="158" width="495" height="20" uuid="3fe43c51-df92-4442-ad53-a2f4edbb126c"/>
+				<reportElement x="60" y="165" width="495" height="20" uuid="3fe43c51-df92-4442-ad53-a2f4edbb126c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isBold="true"/>
 				</textElement>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2016-06-23T11:27:25 -->
+<!-- 2016-07-07T18:12:55 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoio_todas_pessoas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CCI"/>
@@ -115,85 +115,99 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 	</background>
 	<title>
 		<band height="188" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="20" width="80" height="30" uuid="014b30ba-c8e3-487d-abdf-93f0e8c08455"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12"/>
-				</textElement>
-				<text><![CDATA[EMPRESA:]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="80" y="20" width="472" height="30" uuid="54781be2-bbdc-4a17-bb13-89e5e94cd942"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="60" width="100" height="30" uuid="14e99c48-18f0-40b9-bf52-14db678f5c83"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12"/>
-				</textElement>
-				<text><![CDATA[IImo (a) Sr. (A)]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="100" y="60" width="452" height="30" uuid="5e3ad09f-9024-4bd4-8859-64cf207d0611"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="100" width="50" height="30" uuid="8efe8289-5f69-4f3e-8c13-ba541b09fb7b"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12"/>
-				</textElement>
-				<text><![CDATA[End.:]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="50" y="100" width="379" height="30" uuid="57e2c710-afea-47b3-a1c7-ae0365f03a47"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{endereco}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="140" width="60" height="20" uuid="a141ef09-3391-43c9-b34a-d6560b22e4ae"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Cidade:]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="60" y="140" width="220" height="20" uuid="03367528-b255-46a0-b667-0b87975d851c"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cidade}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="290" y="140" width="40" height="20" uuid="c2c1cb46-ad21-401b-8457-f4cfe75b9e25"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Dialog" size="12"/>
-				</textElement>
-				<text><![CDATA[CEP:]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="330" y="140" width="180" height="20" uuid="951fe0ad-f8c0-425f-8d0e-ad60d601a589"/>
+				<reportElement x="42" y="160" width="102" height="20" uuid="ca454fb0-b716-467e-ab91-ce96e50c5b10"/>
 				<textElement verticalAlignment="Middle" markup="none">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="440" y="100" width="41" height="30" uuid="4ec0f86d-fb52-49d3-8d54-53605337c79b"/>
+				<reportElement x="2" y="160" width="40" height="20" uuid="9aa67cfe-3b5c-41b0-81a7-cf965280bf2d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12"/>
+				</textElement>
+				<text><![CDATA[CEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="130" width="48" height="20" uuid="64168784-e26c-4ba7-9a76-2a0a58cb3347"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="50" height="30" uuid="d29404f3-aa82-4e0c-9c4d-74706fe8e407"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12"/>
+				</textElement>
+				<text><![CDATA[End.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="100" height="30" uuid="f830d3c8-deb3-40fb-80a5-446cd6939269"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12"/>
+				</textElement>
+				<text><![CDATA[IImo (a) Sr. (A)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="80" height="30" uuid="9960c62e-e111-409d-bf0b-f704be486d43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12"/>
+				</textElement>
+				<text><![CDATA[EMPRESA:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="10" width="472" height="30" uuid="ddc60ab5-b5e3-4621-af8d-3b518b2b264d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOME_EMPRESA}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="50" width="452" height="30" uuid="c8909b20-f268-431b-8f53-255df0b2397f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="90" width="379" height="30" uuid="20c46106-f03d-470a-9a0b-6e825dadcd92"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endereco}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="130" width="230" height="20" uuid="14ca7a45-3fd9-4b7e-9923-6dfaa3c8551a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairro}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="130" width="60" height="20" uuid="12355a55-a1c8-404d-8837-256467d3ef01"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cidade:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="350" y="130" width="202" height="20" uuid="a1158fef-69f3-46d3-b23b-68842ad16258"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Dialog" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="440" y="90" width="41" height="30" uuid="cf4579c5-7096-4c3f-9744-895a657c0e60"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12"/>
 				</textElement>
 				<text><![CDATA[Nº:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="481" y="100" width="71" height="30" uuid="f9659cac-bc97-4d5c-a3ca-54051da31d28"/>
+				<reportElement x="481" y="90" width="71" height="30" uuid="022aca6a-5423-4522-83e0-258d8380c94a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="12" isBold="true"/>
 				</textElement>
@@ -225,56 +239,56 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 				<text><![CDATA[Prezado (a) Sr.(a)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="135" width="555" height="35" uuid="c1900681-347e-4e62-8e5b-4ce443486c19"/>
+				<reportElement x="0" y="140" width="555" height="35" uuid="c1900681-347e-4e62-8e5b-4ce443486c19"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	Consta em nossos registros a pendência de pagamento dos valores relativos à compra realizada, sob sua responsabilidade, como segue:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="179" width="59" height="20" uuid="1951a6a7-7ea1-483c-a1bf-71a0df239a1e"/>
+				<reportElement x="0" y="195" width="59" height="20" uuid="1951a6a7-7ea1-483c-a1bf-71a0df239a1e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[Empresa:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="208" width="555" height="52" uuid="8728532b-da2b-40b9-a273-d939569579e5"/>
+				<reportElement x="0" y="231" width="555" height="52" uuid="8728532b-da2b-40b9-a273-d939569579e5"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	A finalidade desta segunda comunicação é informarva vossa senhoria que a regularização da dívida ser procedida diretamente com a instituição credora.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="264" width="555" height="106" uuid="6c9e1b18-92d9-4a13-9dcf-b0a097280cb9"/>
+				<reportElement x="0" y="304" width="555" height="106" uuid="6c9e1b18-92d9-4a13-9dcf-b0a097280cb9"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	A INSTITUIÇÃO CREDORA INFORMA QUE LHE OFERECE NOVA OPORTUNIDADE PARA A REGULARIZAÇÃO DESTA PENDÊNCIA. CASO V.SA. CONFIRME A EXISTENCIA DO DÉBITO ACIMA INDICADO E DESEJE CONHECER AS CONDIÇÕES OFERECIDAS PARA A REGULARIZAÇÃO, FAVOR ENTRAR EM CONTATO COM A INSTITUIÇÃO CREDORA NO TELEFONE (77)9 8822-3010 ou (77)9 8118-0515]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="375" width="555" height="75" uuid="81df0dbc-8514-41f5-9961-993118240afe"/>
+				<reportElement x="0" y="425" width="555" height="75" uuid="81df0dbc-8514-41f5-9961-993118240afe"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14"/>
 				</textElement>
 				<text><![CDATA[	Tão logo a CCI receber da instituição credora a confirmação do pagamento realizado ou outra informação permissiva da exclusão do apontamento como, por exemplo, um acordo formalizado com a instituição credora, a exclusão da anotação de inadimplência ocorrerá de imediato.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="487" width="556" height="20" uuid="36cfa583-8725-4c61-a6e8-4942bd1bf0ca"/>
+				<reportElement x="-1" y="537" width="556" height="20" uuid="36cfa583-8725-4c61-a6e8-4942bd1bf0ca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[(Caso já tenha efetuado o pagamento, desconsidere este comunicado).]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="160" y="532" width="59" height="18" uuid="eb0b591c-bc43-4ab0-a6ab-97ebc9e7a3c5"/>
+				<reportElement x="160" y="582" width="59" height="18" uuid="eb0b591c-bc43-4ab0-a6ab-97ebc9e7a3c5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Caculé,]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="226" y="532" width="197" height="18" forecolor="#000000" uuid="a9ad6dea-236e-4892-943f-e347e4792bfb"/>
+				<reportElement x="226" y="582" width="197" height="18" forecolor="#000000" uuid="a9ad6dea-236e-4892-943f-e347e4792bfb"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isBold="true"/>
 				</textElement>
@@ -294,7 +308,7 @@ ccicons_01.pessoa.id LIKE $P{ID_PESSOA}]]>
 				<textFieldExpression><![CDATA[$F{nome}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="179" width="495" height="20" uuid="3fe43c51-df92-4442-ad53-a2f4edbb126c"/>
+				<reportElement x="60" y="195" width="495" height="20" uuid="3fe43c51-df92-4442-ad53-a2f4edbb126c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Dialog" size="14" isBold="true"/>
 				</textElement>

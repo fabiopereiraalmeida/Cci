@@ -27,7 +27,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Implementacao do Bean Validation -->
+		<!-- Implementacao do Bean/Hibernate Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
